@@ -1,0 +1,35 @@
+doctype html
+html(ng-app='maintenance')
+  head
+    title Dive Sites
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      .oddRow {
+        background-color: #dddddd;
+      }
+  body
+    .container-fluid(ng-controller='siteEditCtrl')
+      h1 Dive Sites Maintenance
+      div(ng-show="view=='list'")
+        .row
+          .col-sm-12
+            button.btn.btn-primary.btn-lg Add new dive
+        h2 List of Dive Sites
+        .row(ng-repeat='site in sites',ng-class='{oddRow: $index%2 == 0}')
+          .col-sm-8
+            h4 {{$index + 1}}: {{site}}
+          .col-sm-4(style={'margin-top': '5px'})
+            .pull-right
+              button.btn.btn-warning.btn-sm Edit
+              | &nbsp;
+              button.btn.btn-danger.btn-sm Delete
+    script(src='/angular/angular.js')
+    script(src='sites.js')
+    script
+      :coffee-script
+        angular.module 'maintenance', []
+        .controller 'siteEditCtrl', ($scope) ->
+          $scope.sites = sites
+          setView = (view) -> $scope.view = view
+          setView 'list'
+
