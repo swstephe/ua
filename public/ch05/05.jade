@@ -1,0 +1,28 @@
+doctype html
+html(ng-app='yw.main')
+  head
+    title Yw Modules
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(ng-controller='moduleCtrl')
+    .container-fluid
+      h1 {{message}}
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'my.core.comm', []
+        angular.module 'my.core.ui', []
+        angular.module 'my.core', ['my.core.comm', 'my.core.ui']
+        angular.module 'yw.charts', ['my.core']
+        angular.module 'yw.divelog', []
+        angular.module 'yw.user', ['my.core']
+        angular.module 'dummy1', ['dummy2']
+        angular.module 'yw.main', [
+          'my.core'
+          'yw.divelog'
+          'yw.user'
+          'yw.charts'
+        ]
+        .controller 'moduleCtrl', [
+            '$scope'
+            ($scope) -> $scope.message = "Module dependency checked."
+        ]

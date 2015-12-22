@@ -1,0 +1,56 @@
+doctype html
+html(ng-app='events')
+  head
+    title Dive Buddy
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      .logItem {
+        background-color: lightblue;
+        border: 2px solid navy;
+        padding: 8px;
+        text-align: center;
+        width: 200px;
+        position: relative;
+        display: block;
+        cursor: pointer;
+      }
+  body(ng-controller='dragCtrl')
+    .container-fluid
+      h1 Drag dive log item
+      .row
+        #item.col-sm-12.logItem(ng-mousedown='mouseDown($event)')
+          | Dive Log Entry
+    script(src='/jquery-2.1.4.js')
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'events', []
+        .controller 'dragCtrl', ($scope) ->
+          startX = 0
+          startY = 0
+          x = 0
+          y = 0
+          element = null
+          doc = null
+
+          $scope.mouseDown = (e) ->
+            element = angular.element '#item'
+            doc = angular.element document
+            e.preventDefault()
+            startX = e.screenX - x
+            startY = e.screenY - y
+            doc.on 'mousemove', mouseMove
+            doc.on 'mouseup', mouseUp
+            true
+
+          mouseMove = (e) ->
+            y = e.screenY - startY
+            x = e.screenX - startX
+            element.css
+              top: "#{y}px"
+              left: "#{x}px"
+
+          mouseUp = (e) ->
+            doc.off 'mousemove', mouseMove
+            doc.off 'mouseup', mouseUp
+

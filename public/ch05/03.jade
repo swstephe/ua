@@ -1,0 +1,25 @@
+doctype html
+html(ng-app)
+  head
+    title Dive Buddy
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top':'24px'})
+    .container-fluid
+      .row
+        .col-sm-12
+          label(for='buddyEdit') Buddy Name:
+          input#buddyEdit.form-control(
+              ng-model='buddy'
+              ng-init="buddy='Thomas Shark'"
+          )
+      .row(style={'margin-top':'12px'})
+        .col-sm-12
+          p ng-bind: <strong ng-bind='buddy'></strong>
+          p data-ng-bind: <strong data-ng-bind='buddy'></strong>
+          p x-ng-bind: <strong x-ng-bind='buddy'></strong>
+          p ng:bind: <strong ng:bind='buddy'></strong>
+          p ng_bind: <strong ng_bind='buddy'></strong>
+          p x-ng:bind: <strong x-ng:bind='buddy'></strong>
+          p x:ng:bind: <strong x:ng:bind='buddy'></strong>
+          p data_ng:bind: <strong data_ng:bind='buddy'></strong>
+    script(src='/angular/angular.js')
