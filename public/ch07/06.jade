@@ -1,0 +1,56 @@
+doctype html
+html(ng-app='token')
+  head
+    title Token Game
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid(ng-controller='tokenGoalCtrl')
+      h2 Find Underwater Tokens Game
+      .row
+        .col-sm-12
+          h4 Tokens to collect: {{tokens}}
+          button.btn.btn-sm(ng-click='increment()',ng-disabled='tokens >= 100')
+            | +
+          button.btn.btn-sm(ng-click='decrement()',ng-disabled='tokens <= 0')
+            | -
+      div(ng-controller='tokenCollCtrl')
+        .row
+          .col-sm-12
+            h4
+              | Tokens collected: {{collected}}&#32;
+              span(ng-show='hasEnough()') [Done!]
+        .row(
+          ng-controller='diverCtrl'
+          ng-repeat='diver in divers'
+          style={'padding-top': '4px'}
+        )
+          .col-sm-2 {{diver}}: {{tokensFound}}
+          .col-sm-4
+            button.btn.btn-xs.btn-success(ng-click='found()') Found
+            &nbsp;
+            button.btn.btn-xs.btn-danger(
+              ng-click='lost()'
+              ng-disabled='tokensFound <= 0'
+            ) Lost
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'token', []
+        .constant 'initialGoal', 8
+        .controller 'tokenGoalCtrl', ($scope, initialGoal) ->
+          $scope.divers = ["Bob", "Cecile", "Jake"]
+          $scope.tokens = initialGoal
+          $scope.increment = -> $scope.tokens++; goalChanged()
+          $scope.decrement = -> $scope.tokens--; goalChanged()
+          goalChanged = -> $scope.$broadcast 'NewGoal', $scope.tokens
+        .controller 'tokenCollCtrl', ($scope, initialGoal) ->
+          $scope.toGet = initialGoal
+          $scope.collected = 0
+          $scope.hasEnough = -> $scope.toGet <= $scope.collected
+          $scope.$on 'NewGoal', (event, newGoal) -> $scope.toGet = newGoal
+          $scope.$on 'TokenChange', (event, diff) -> $scope.collected += diff
+        .controller 'diverCtrl', ($scope) ->
+          $scope.tokensFound = 0
+          $scope.found = -> $scope.tokensFound++; tokenChanged 1
+          $scope.lost = -> $scope.tokensFound--; tokenChanged -1
+          tokenChanged = (diff) -> $scope.$emit 'TokenChange', diff

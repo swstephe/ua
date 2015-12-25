@@ -1,0 +1,75 @@
+doctype html
+html(ng-app='watcher')
+  head
+    title Change detection
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(ng-controller='divesCtrl')
+    .container-fluid
+      h2 Dives
+      pre {{dives || json}}
+      .row
+        .col-sm-12
+          button.btn.btn-primary(ng-click='clone()') Clone collection
+          &nbsp;
+          button.btn.btn-primary(ng-click='swapItems()')
+            | Swap dives[0] and dives[1]
+          &nbsp;
+          button.btn.btn-primary(ng-click='changeItemProp()')
+            | Increment dives[0].depth
+          &nbsp;
+          button.btn.btn-default(ng-click='reset()') Reset
+      .row
+        .col-sm-6
+          table.table
+            thead
+              tr
+                th Detection Mode
+                th Detected?
+            tbody
+              tr
+                td By reference
+                td
+                  span.label(ng-class='detected(byRef)') {{byRef}}
+              tr
+                td By collection contents
+                td
+                  span.label(ng-class='detected(byColl)') {{byColl}}
+              tr
+                td By value
+                td
+                  span.label(ng-class='detected(byVal)') {{byVal}}
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'watcher', []
+        .controller 'divesCtrl', ($scope) ->
+          $scope.dives = [
+            {site: "El Aroukh", depth: 32}
+            {site: "Abu Ramada", depth: 112}
+            {site: "Small Giftun", depth: 54}
+          ]
+          canEval = false
+          $scope.clone = ->
+            $scope.reset()
+            canEval = true
+            $scope.dives = $scope.dives.slice(0)
+          $scope.swapItems = ->
+            $scope.reset()
+            canEval = true
+            temp = $scope.dives[0]
+            $scope.dives[0] = $scope.dives[1]
+            $scope.dives[1] = temp
+          $scope.changeItemProp = ->
+            $scope.reset()
+            canEval = true
+            $scope.dives[0].depth++
+          $scope.reset = ->
+            $scope.byRef = false
+            $scope.byColl = false
+            $scope.byVal = false
+          $scope.detected = (flag) ->
+            if flag then 'label-success' else 'label-danger'
+          $scope.$watch 'dives', -> $scope.byRef = canEval
+          $scope.$watchCollection 'dives', -> $scope.byColl = canEval
+          $scope.$watch 'dives', (-> $scope.byVal = canEval), true
+          $scope.reset()
