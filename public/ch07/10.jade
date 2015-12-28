@@ -1,0 +1,25 @@
+doctype html
+html(ng-app='digest')
+  head
+    title Digest Loop
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      .ng-scope {
+        border: 1px solid blue;
+        border-left: 8px solid blue;
+        margin: 4px 12px;
+        padding: 4px;
+      }
+  body(style={'margin-top': '24px'})
+    .container-fluid(ng-controller='doubler as ctrl')
+      label Word to double:
+      input.form-control(ng-model='ctrl.word')
+      span.help-block {{ctrl.doubled()}}
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'digest', []
+        .controller 'doubler', ->
+          @word = ''
+          @doubled = -> "#{@word} #{@word}"
+          true
