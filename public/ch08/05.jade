@@ -1,0 +1,38 @@
+doctype html
+html(ng-app)
+  head
+    title Radio button
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top': '12px'})
+    .container(ng-init="gasType='air'")
+      form(name='diveProps')
+        .radio
+          label
+            input(
+                type='radio'
+                name='gasType'
+                ng-model='gasType'
+                ng-value="'air'"
+            )
+            | &#32;Air
+        .radio
+          label
+            input(
+                type='radio'
+                name='gasType'
+                ng-model='gasType'
+                ng-value="'nitrox'"
+            )
+            | &#32;Enriched air
+        .radio
+          label
+            input(
+                type='radio'
+                name='gasType'
+                ng-model='gasType'
+                ng-value="'trimix'"
+            )
+            | &#32;Technical gas mix
+        hr
+        p The selected gas is: {{gasType}}
+    script(src='/angular/angular.js')

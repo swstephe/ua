@@ -1,0 +1,29 @@
+doctype html
+html(ng-app)
+  head
+    title Root Scope
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top': '12px'})
+    .container(ng-init="nightDive='night';wreckDive=false")
+      form(name='diveProps')
+        .checkbox
+          label
+            input(
+                type='checkbox'
+                name='wreckDive'
+                ng-model='wreckDive'
+            )
+            | &#32;Wreck dive?
+            span ({{wreckDive}})
+        .checkbox
+          label
+            input(
+                type='checkbox'
+                name='nightDive'
+                ng-true-value="'night'"
+                ng-false-value="'day'"
+                ng-model='nightDive'
+            )
+            | &#32;Night dive?
+            span ({{nightDive}})
+    script(src='/angular/angular.js')

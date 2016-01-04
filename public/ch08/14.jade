@@ -1,0 +1,22 @@
+doctype html
+html(ng-app)
+  head
+    title ngModelOptions timezone
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top': '12px'})
+    .container(ng-init="zoneValue={timezone: '+0430'}")
+      label.control-label Time value
+      input.form-control(
+          type='time'
+          autofocus
+          ng-model='timeValue'
+          ng-model-options='zoneValue'
+      )
+      hr
+      p
+        | The zone value in the model is:
+        strong {{zoneValue}}
+      p
+        | The time value in the model is:
+        strong {{timeValue}}
+    script(src='/angular/angular.js')

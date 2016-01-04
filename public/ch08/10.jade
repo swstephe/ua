@@ -1,0 +1,12 @@
+doctype html
+html(ng-app)
+  head
+    title ng-model
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top': '12px'})
+    .container
+      label.control-label Type in a value
+      input.form-control(ng-model='myObj.prop.subprop')
+      hr
+      p You typed: {{myObj.prop.subprop}}
+    script(src='/angular/angular.js')
