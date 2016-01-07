@@ -1,0 +1,35 @@
+doctype html
+html(ng-app)
+  head
+    title Form
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      input.ng-invalid.ng-touched {
+        border: 2px solid maroon;
+        background-color: lightpink;
+      }
+  body(style={'margin-top': '12px'})
+    .container
+      form(name='simple',novalidate)
+        .form-group
+          label.control-label User name
+          input.form-control(
+              autofocus
+              name='userName'
+              ng-model='userName'
+              required
+          )
+        .form-group
+          label.control-label Email
+          input.form-control(
+              name='email'
+              ng-model='email'
+              type='email'
+              required
+          )
+        input.btn.btn-primary(
+            type='submit'
+            ng-disabled='simple.$invalid'
+            value="Save"
+        )
+    script(src='/angular/angular.js')
