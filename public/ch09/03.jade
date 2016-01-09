@@ -1,0 +1,17 @@
+doctype html
+html(ng-app='services')
+  head
+    title Constant Service
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(ng-controller='versionCtrl')
+    .container
+      h2 This is Younderwater v{{getVersion()}}
+      button.btn.btn-primary(ng-click='incMinor()') Increment minor number
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'services', []
+        .constant 'version', {major: 1, minor: 3}
+        .controller 'versionCtrl', ($scope, version) ->
+          $scope.getVersion = -> version.major + "." + version.minor
+          $scope.incMinor = -> version.minor++

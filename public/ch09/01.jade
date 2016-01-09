@@ -1,0 +1,20 @@
+doctype html
+html(ng-app='services')
+  head
+    title Constant Service
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(ng-controller='statsCtrl')
+    .container
+      h2 The number of your dives: {{diveNum}}
+      h2 Hours spent underwater: {{hours}}
+      h2 Average dive time: {{avgTime|number:2}} minutes
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'services', []
+        .constant 'diveNum', 449
+        .constant 'hours', 403.9
+        .controller 'statsCtrl', ($scope, diveNum, hours) ->
+          $scope.diveNum = diveNum
+          $scope.hours = hours
+          $scope.avgTime = hours / diveNum*60

@@ -1,0 +1,32 @@
+doctype html
+html(ng-app='diveLog')
+  head
+    title Dive Log
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid(ng-controller='diveLogCtrl')
+      h1 My Latest Dives
+      .row
+        .col-sm-12
+          h3 Average dive time: {{avgTime() | number: 2}} minute
+          h3 Average depth: {{avgDepth() | number}} feet
+      .row
+        .col-sm-4(ng-repeat='dive in dives')
+          h3 {{dive.site}}
+          h4 {{dive.location}}
+          h2 {{dive.depth}} feet | {{dive.time}} min
+    script(src='/angular/angular.js')
+    script(src="dives.js")
+    script
+      :coffee-script
+        angular.module 'diveLog', []
+        .controller 'diveLogCtrl', ($scope) ->
+          $scope.dives = dives
+          $scope.avgTime = ->
+            return 0.0 if dives.length is 0
+            sum = dives.reduce ((s, dive) -> s += dive.time), 0.0
+            sum / dives.length
+          $scope.avgDepth = ->
+            return 0.0 if dives.length is 0
+            sum = dives.reduce ((s, dive) -> s += dive.depth), 0.0
+            sum / dives.length

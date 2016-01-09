@@ -1,0 +1,21 @@
+doctype html
+html(ng-app='services')
+  head
+    title Text input
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body(style={'margin-top': '12px'})
+    .container(ng-controller='depthCtrl')
+      label.control-label Planned Maximum Depth (feet)
+      input.form-control(type='number',ng-model='maxDepth')
+      p.text-danger You need {{cert()}} certification for this dive.
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular.module 'services', []
+        .constant 'isDeepFunc', (depth) -> depth > 120
+        .controller 'depthCtrl', ($scope, isDeepFunc) ->
+          $scope.cert = ->
+            if isDeepFunc($scope.maxDepth)
+              "Advacned Open Water"
+            else
+              "Open Water"

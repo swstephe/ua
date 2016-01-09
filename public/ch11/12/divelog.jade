@@ -1,0 +1,90 @@
+doctype html
+html(ng-app='diveLog')
+  head
+    title Dive Log with Templates
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      .logEntry1 {
+        background-color: navy;
+        padding: 2px 16px;
+        margin-bottom: 12px;
+      }
+      .logEntry1 > h2 {
+        color: yellow;
+      }
+      .logEntry1 > h3 {
+        color: cyan;
+      }
+      .logEntry1 > h4 {
+        color: white;
+      }
+      .logEntry2 {
+        background-color: #eeeeee;
+        border: 2px solid darkgray;
+        padding: 2px 16px;
+        margin-bottom: 12px;
+      }
+      .logEntry2 > h2 {
+        color: black;
+      }
+      .logEntry2 > h3 {
+        color: gray;
+      }
+      .logEntry2 > h4 {
+        color: darkgray;
+      }
+  body
+    .container-fluid(ng-controller='diveLogCtrl')
+      h1 My Latest Dives
+      .row(style={'margin-bottom': '12px'})
+        .col-sm-4
+          button.btn.btn-default(ng-click='style=1') Colorful
+          button.btn.btn-default(ng-click='style=2') Grayscale
+        .col-sm-4.col-sm-offset-8
+          input.form-control.input-lg(
+            placeholder="Search"
+            ng-model='searchKey'
+          )
+      .row
+        .col-sm-4
+          dive-log-card(dive-entry="{site:'Fake site',location:'Fake location',depth:0,time:0}")
+        .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
+          dive-log-card(dive-entry='dive')
+    script(src='/angular/angular.js')
+    script(src='dives.js')
+    script
+      :coffee-script
+        angular
+        .module 'diveLog', []
+        .controller 'diveLogCtrl', ($scope) ->
+          $scope.dives = dives
+          $scope.style = 1
+        .directive 'diveLogCard', ->
+          createCard = (scope, element, diveEntry) ->
+            div = angular.element '<div>'
+            div.addClass if scope.style is 1 then 'logEntry1' else 'logEntry2'
+            site = angular.element '<h3>'
+            site.text diveEntry.site
+            location = angular.element '<h4>'
+            location.text diveEntry.location
+            diveData = angular.element '<h2>'
+            diveData.text "#{diveEntry.depth} feet | #{diveEntry.time} min"
+            if scope.style is 1
+              div.append site
+              div.append location
+              div.append diveData
+            else
+              div.append diveData
+              div.append site
+              div.append location
+            div
+          restrict: 'E'
+          link: (scope, element, attrs) ->
+            dive = scope.$eval attrs['diveEntry']
+            div = createCard scope, element, dive
+            element.append div
+            watcherFn = (watchScope) ->  watchScope.$eval 'style'
+            scope.$watch watcherFn, ->
+              element.children().remove()
+              div = createCard scope, element, dive
+              element.append div
