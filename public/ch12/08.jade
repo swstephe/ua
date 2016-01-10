@@ -1,0 +1,53 @@
+doctype html
+html(ng-app='token')
+  head
+    title Token Game
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid(ng-controller='tokenGameCtrl')
+      h2 Find Underwater Tokens Game
+      h4 Tokens to collect: {{toCollect}}
+      div
+        .row
+          .col-sm-12
+            h4
+              | Tokens collected: {{collected}}&#32;
+              span(ng-show='hasEnough()') [Done!]
+            h3
+              span(ng-repeat='value in tokens track by $index')
+                span {{value > 0 ? '+' : '-'}}
+      div(
+        ng-repeat='diver in divers'
+        diver-panel
+        diver-name='{{diver}}'
+        change='$parent.change(found)'
+      )
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular
+        .module 'token', []
+        .constant 'initialGoal', 10
+        .controller 'tokenGameCtrl', ($scope, initialGoal) ->
+          $scope.divers = ["Bob", "Cecile", "Jake"]
+          $scope.toCollect = initialGoal
+          $scope.collected = 0
+          $scope.tokens = []
+          $scope.change = (found) ->
+            $scope.collected += found
+            $scope.tokens.push found
+          $scope.hasEnough = -> $scope.toCollect <= $scope.collected
+        .directive 'diverPanel', ($templateCache) ->
+          scope:
+            diver: '@diverName'
+            sign: '&change'
+          templateUrl: 'diverPanel.html'
+          link: (scope, element, attrs) ->
+            scope.tokensFound = 0
+            scope.diver = attrs['diverName']
+            scope.found = ->
+              scope.tokensFound++
+              scope.sign {found: 1}
+            scope.lost = ->
+              scope.tokensFound--
+              scope.sign {found: -1}

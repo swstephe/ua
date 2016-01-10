@@ -1,0 +1,43 @@
+doctype html
+html(ng-app='controls')
+  head
+    title Top dives
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid
+      h2 Top dives
+      .panel.panel-primary(ng-controller='diveCtrl')
+        .panel-heading The best dives of this month
+        .panel-body
+          div(
+            top-dive
+            collection='dives'
+            top-count=3
+          )
+            h3.text-success
+              | #
+              | {{$index + 1}}: {{$dive.site}}
+            h4 {{$dive.location}}
+            h2 {{$dive.depth}}m | {{$dive.time}}min
+        .panel-footer Stay tuned!
+    script(src='/angular/angular.js')
+    script(src='dives.js')
+    script
+      :coffee-script
+        angular
+        .module 'controls', []
+        .controller 'diveCtrl', ($scope) -> $scope.dives = dives
+        .directive 'topDive', ->
+          transclude: 'element'
+          priority: 1000
+          link: (scope, element, attrs, ctrl, transclude) ->
+            topCount = scope.$eval attrs.topCount
+            coll = scope.$eval attrs.collection
+            prev = element
+            for col, i in coll
+              childScope = scope.$new()
+              childScope.$index = i
+              childScope.$dive = col
+              transclude childScope, (clone) ->
+                prev.after clone
+                prev = clone

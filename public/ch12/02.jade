@@ -1,0 +1,36 @@
+doctype html
+html(ng-app='traveling')
+  head
+    title Traveling with Scope
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+    style.
+      .ng-scope {
+        border: 1px solid blue;
+        border-left: 8px solid blue;
+        margin: 4px 12px;
+        padding: 4px;
+      }
+  body
+    .container-fluid
+      .row(ng-init='greeting="Welcome"')
+        .col-sm-12
+          h1 {{greeting}}, you are in the USA.
+      .row(my-welcome)
+        .col-sm-12
+          button.btn.btn-primary(ng-click='sayHello("Wilkommen")')
+            | Travel to Germany
+          h2 {{greeting}}, you are in Germany.
+          .row(my-welcome)
+            .col-sm-12
+              button.btn.btn-primary(ng-click='sayHello("Grüss Gott")')
+                | Travel to Beyern
+              h3 {{greeting}}, you are in Bayern.
+    script(src='/angular/angular.js')
+    script
+      :coffee-script
+        angular
+        .module 'traveling', []
+        .directive 'myWelcome', ->
+          scope: true
+          link: (scope, element, attrs) ->
+            scope.sayHello = (greeting) -> scope.greeting = greeting

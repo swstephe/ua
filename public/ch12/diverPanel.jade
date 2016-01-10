@@ -1,0 +1,10 @@
+.row(style={'padding-top':'4px'})
+  .col-sm-6
+    button.btn.btn-xs.btn-success(ng-click='found()') Found
+    | &nbsp;
+    button.btn.btn-xs.btn-danger(
+      ng-click='lost()'
+      ng-disabled='tokensFound <= 0'
+    ) Lost
+    | &nbsp;
+    span {{diver}}: {{tokensFound}}

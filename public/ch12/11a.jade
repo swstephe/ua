@@ -1,0 +1,7 @@
+div
+  div(ng-show="!editing")
+    button.btn.btn-success(ng-click='startEdit()') {{selectedValue}}
+  div(ng-show='editing')
+    span(ng-repeat='value in values')
+      button.btn.btn-default(ng-click='selectValue(value)') {{value}}
+      | &nbsp;

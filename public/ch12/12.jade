@@ -1,0 +1,17 @@
+doctype html
+html(ng-app)
+  head
+    title Top dives
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid
+      h2 Top dives
+      div(ng-init='dive={site:"El Aroukh",location:"Giftun, Egypt",depth: 14.2,time:56}')
+      .panel.panel-primary
+        .panel-heading The best dive of this month
+        .panel-body
+          h3 {{dive.site}}
+          h4 {{dive.location}}
+          h2 {{dive.depth}}m | {{dive.time}}min
+        .panel-footer Stay tuned!
+    script(src='/angular/angular.js')
