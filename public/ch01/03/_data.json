@@ -1,0 +1,6 @@
+{
+  "index": {
+    "app": {"ng-app": true},
+    "title": "Dive Log (AngularJS)"
+  }
+}

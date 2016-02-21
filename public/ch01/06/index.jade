@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  h1 My Latest Dives (ng-controller)
+  .row
+    .col-sm-5
+      button.btn.btn-primary.btn-lg(
+        ng-click='addDive()'
+        ng-disabled='!enableAdd()'
+      ) Add new dive
+      button.btn.btn-danger.btn-lg(ng-click='clearDives()') Clear dives
+    .col-sm-4.col-sm-offset-3
+      input.form-control.input-lg(
+        placeholder="Search"
+        ng-model='searchKey'
+      )
+  .row
+    .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
+      h3 {{dive.site}}
+      h4 {{dive.location}}
+      h2 {{dive.depth}} feet | {{dive.time}} min
+
+block script
+  script(src='/angular/angular.js')
+  script(src='dives.js')
+  script
+    :coffee-script
+      angular.module 'diveLog', []
+      .controller 'diveLogCtrl', ($scope) ->
+        index = 0
+        $scope.dives = []
+        $scope.addDive = ->
+          $scope.dives.push dives[index++] if $scope.enableAdd()
+        $scope.clearDives = ->
+          $scope.dives = []
+          index = 0
+        $scope.enableAdd = -> index < dives.length

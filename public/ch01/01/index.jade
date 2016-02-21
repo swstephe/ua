@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+  h1 My Latest Dives (HTML)
+  .row
+    for dive in public.ch01._data.dives
+      .col-sm-4
+       h3= dive.site
+       h4= dive.location
+       h2 #{dive.depth} feet | #{dive.time} min

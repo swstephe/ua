@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+  h1 My Latest Dives (AngularJS)
+  - var dives = JSON.stringify(public.ch01._data.dives).replace(/"/g,"'")
+  .row(ng-init='dives='+dives)
+    .col-sm-4(ng-repeat='dive in dives')
+      h3 {{dive.site}}
+      h4 {{dive.location}}
+      h2 {{dive.depth}} feet | {{dive.time}} min
+
+block script
+  script(src='/angular/angular.js')
