@@ -1,0 +1,28 @@
+doctype html
+html(ng-app='diveLog')
+  head
+    title Dive Log
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid(ng-controller='diveLogCtrl')
+      h1 My Latest Dives
+      .row
+        .col-sm-4(ng-repeat="dive in dives")
+          h3 {{dive.site}}
+          h3 {{dive.location}}
+          h3 {{dive | diveData : ' :: '}}
+    script(src='/angular/angular.js')
+    script(src='../dives.js')
+    script
+      :coffee-script
+        angular.module 'diveLog', []
+        .filter 'diveData', ->
+          (value, separator) ->
+            seperator = ' | ' unless angular.isDefined separator
+            if angular.isDefined(value.depth) and angular.isDefined(value.time)
+              "#{value.depth} feet#{separator}#{value.time} min"
+            else
+              value
+        .controller 'diveLogCtrl', ($scope) ->
+          $scope.limitValue = 100
+          $scope.dives = dives

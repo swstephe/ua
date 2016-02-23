@@ -1,0 +1,18 @@
+doctype html
+html(ng-app='diveLog')
+  head
+    title Dive Log
+    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid
+      h1 My Latest Dives
+      .row(ng-controller='diveLogCtrl')
+        .col-sm-4(ng-repeat='dive in dives')
+          pre {{dive || json}}
+    script(src='/angular/angular.js')
+    script(src="../dives.js")
+    script
+      :coffee-script
+        angular.module 'diveLog', []
+        .controller 'diveLogCtrl', ($scope) ->
+          $scope.dives = dives
