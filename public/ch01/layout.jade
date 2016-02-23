@@ -4,6 +4,6 @@ html&attributes(app || {})
     title= title
     link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
   body
-    .container-fluid
+    .container-fluid()&attributes(controller || {})
       block content
     block script

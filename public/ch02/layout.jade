@@ -1,0 +1,15 @@
+doctype html
+html(ng-app='maintenance')
+  head
+    title Dive Sites
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    style.
+      .oddRow {
+        background-color: #dddddd;
+      }
+  body
+    .container-fluid(ng-controller='siteEditCtrl')
+      block content
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='../sites.js')
+    block script

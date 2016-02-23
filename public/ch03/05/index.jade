@@ -1,0 +1,27 @@
+extends ../layout
+
+block navbar
+  a.navbar-brand(href='#/main') Younderwater Admin
+  #adminMenu.collapse.navbar-collapse
+    ul.nav.navbar-nav
+      li(ng-class="{active: isActive('Locations')}")
+        a(href='#/locations') Locations
+      li(ng-class="{active: isActive('Sites')}")
+        a(href='#/sites') Dive Sites
+
+block content
+  // Optional title bar
+  .current-spot
+    .container-fluid(ng-show="!isActive('')")
+      .container
+        h3 {{getTitle()}}
+
+  // View content
+  .main-content
+    .container-fluid
+      .container
+        div(ng-view)
+
+block script
+  script(src='/angular-route/angular-route.js')
+  script(src='05.js')

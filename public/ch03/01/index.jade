@@ -1,0 +1,34 @@
+extends ../layout
+
+block navbar
+  a.navbar-brand(href='#',ng-click='showMain()') Younderwater Admin
+  #adminMenu.collapse.navbar-collapse
+    ul.nav.navbar-nav
+      li(ng-class="{active: isActive('Locations')}")
+        a(href='#',ng-click='showLocations()') Locations
+      li(ng-class="{active: isActive('Sites')}")
+        a(href='#',ng-click='showDiveSites()') Dive Sites
+
+block content
+  // Optional view header
+  .current-spot
+    .container-fluid
+      .container
+        div(ng-show="view=='locations'")
+          h3 Manage the list of diving locations
+        div(ng-show="view=='diveSites'")
+          h3 Manage the list of dive sites
+
+  // View content
+  .main-content
+    .container-fluid
+      .container
+        div(ng-show="view=='main'")
+          p Main content
+        div(ng-show="view=='locations'")
+          p Locations content
+        div(ng-show="view=='diveSites'")
+          p Dive sites content
+
+block script
+  script(src='01.js')
