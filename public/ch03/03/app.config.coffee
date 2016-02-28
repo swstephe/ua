@@ -1,5 +1,4 @@
-angular.module 'maintenance', ['ngRoute']
-.controller 'adminCtrl', ['$scope', ($scope) ->]
+angular.module 'app'
 .config [
   '$routeProvider'
   ($routeProvider) ->
