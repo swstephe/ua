@@ -1,19 +1,4 @@
-angular.module 'main', ['ngRoute', 'core', 'maintenance']
-
-.controller 'adminCtrl', [
-  '$scope'
-  'currentSpot'
-  ($scope, currentSpot) ->
-    $scope.isActive = (menuId) -> currentSpot.getActiveMenu() == menuId
-    $scope.getTitle = -> currentSpot.getTitle()
-    $scope.getActiveMenu = -> currentSpot.getActiveMenu()
-]
-
-.controller 'mainCtrl', [
-  'currentSpot'
-  (currentSpot) ->
-]
-
+angular.module 'app'
 .config [
   '$routeProvider'
   ($routeProvider) ->

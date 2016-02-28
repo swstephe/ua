@@ -1,12 +1,4 @@
-angular.module 'diveLog', []
-.factory 'diveLogApi', [
-  '$http'
-  ($http) ->
-    getDives: ->
-      $http.get('dives.json')
-      .then (response) -> response.data
-]
-
+angular.module 'app'
 .controller 'diveLogCtrl', [
   '$scope'
   'diveLogApi'
@@ -24,7 +16,7 @@ angular.module 'diveLog', []
         (data) ->
           $scope.dives = data
           loading = false
-        ,
+      ,
         (reason) ->
           $scope.errorMessage = reason
           loading = false

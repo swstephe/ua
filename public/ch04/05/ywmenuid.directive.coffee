@@ -1,25 +1,4 @@
-angular.module 'core', []
-
-.factory 'currentSpot', ->
-  activeMenuId = ''
-  titleText = ''
-  {
-    setCurrentSpot: (menuId, title) ->
-      activeMenuId = menuId
-      titleText = title
-    getActiveMenu: -> activeMenuId
-    getTitle: -> titleText
-  }
-
-.directive 'ywActiveMenu', [
-  'currentSpot'
-  (currentSpot) ->
-    (scope, element, attrs) ->
-      activeMenuId = attrs['ywActiveMenu']
-      activeTitle = attrs['ywActiveTitle']
-      currentSpot.setCurrentSpot activeMenuId, activeTitle
-]
-
+angular.module 'core'
 .directive 'ywMenuId', [
   'currentSpot'
   (currentSpot) ->
