@@ -35,17 +35,5 @@ block content
         button.btn.btn-warning.btn(ng-click='cancel()') Cancel
 
 block script
-  script
-    :coffee-script
-      angular.module 'maintenance', []
-      .controller 'siteEditCtrl', ($scope) ->
-        $scope.sites = sites
-        $scope.view = 'list'
-        $scope.startAdd = ->
-          $scope.siteBox = ''
-          $scope.view = 'add'
-        $scope.cancel = -> setView 'list'
-        $scope.add = ->
-          $scope.sites.push($scope.siteBox)
-          $scope.view = 'list'
-
+  script(type='text/javascript' src='app.module.js')
+  script(type='text/javascript' src='siteedit.controller.js')

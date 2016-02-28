@@ -9,9 +9,7 @@ block content
       h2 {{dive.depth}} feet | {{dive.time}} min
 
 block script
-  script(src='/angular/angular.js')
-  script(src='../dives.js')
-  script
-    :coffee-script
-      angular.module 'diveLog', []
-      .controller 'diveLogCtrl', ($scope) -> $scope.dives = dives
+  script(type='text/javascript' src='/angular/angular.js')
+  script(type='text/javascript' src='../dives.js')
+  script(type='text/javascript' src='app.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

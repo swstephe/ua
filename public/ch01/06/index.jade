@@ -21,17 +21,7 @@ block content
       h2 {{dive.depth}} feet | {{dive.time}} min
 
 block script
-  script(src='/angular/angular.js')
-  script(src='../dives.js')
-  script
-    :coffee-script
-      angular.module 'diveLog', []
-      .controller 'diveLogCtrl', ($scope) ->
-        index = 0
-        $scope.dives = []
-        $scope.addDive = ->
-          $scope.dives.push dives[index++] if $scope.enableAdd()
-        $scope.clearDives = ->
-          $scope.dives = []
-          index = 0
-        $scope.enableAdd = -> index < dives.length
+  script(type='text/javascript' src='/angular/angular.js')
+  script(type='text/javascript' src='../dives.js')
+  script(type='text/javascript' src='app.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

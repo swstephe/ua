@@ -16,8 +16,5 @@ block content
         button.btn.btn-danger.btn-sm Delete
 
 block script
-  script
-    :coffee-script
-      angular.module 'maintenance', []
-      .controller 'siteEditCtrl', ($scope) ->
-        $scope.sites = sites
+  script(type='text/javascript' src='app.module.js')
+  script(type='text/javascript' src='siteedit.controller.js')
