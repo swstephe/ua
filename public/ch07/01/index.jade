@@ -1,18 +1,9 @@
-doctype html
-html(ng-app='root')
-  head
-    title Root Scope
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1(ng-init='evidence="Yes!"') Is there a Root Scope?
-      h2(ng-controller='simpleCtrl') {{answer}}
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'root', []
-        .controller 'simpleCtrl', [
-          '$scope'
-          '$rootScope'
-          ($scope, $rootScope) -> $scope.answer = $rootScope.evidence
-        ]
+extends ../layout
+
+block content
+  h1(ng-init='evidence="Yes!"') Is there a Root Scope?
+  h2(ng-controller='simpleCtrl') {{answer}}
+
+block script
+  script(type='text/javascript' src='root.module.js')
+  script(type='text/javascript' src='simple.controller.js')

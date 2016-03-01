@@ -1,17 +1,10 @@
-doctype html
-html(ng-app='digest')
-  head
-    title Digest Loop
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top': '24px'})
-    .container-fluid(ng-controller='doubler')
-      label Word to double:
-      input.form-control(ng-model='word')
-      span.help-block {{doubled()}}
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'digest', []
-        .controller 'doubler', ($scope) ->
-          $scope.word = ''
-          $scope.doubled = -> "#{$scope.word} #{$scope.word}"
+extends ../layout
+
+block content
+  label Word to double:
+  input.form-control(ng-model='word')
+  span.help-block {{doubled()}}
+
+block script
+  script(type='text/javascript' src='digest.module.js')
+  script(type='text/javascript' src='doubler.controller.js')

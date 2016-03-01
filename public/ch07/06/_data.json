@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "token"},
+        "container": {"ng-controller": "tokenGoalCtrl"},
+        "title": "Token Game"
+    }
+}

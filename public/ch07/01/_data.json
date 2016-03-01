@@ -1,0 +1,6 @@
+{
+    "index": {
+        "app": {"ng-app": "root"},
+        "title": "Root Scope"
+    }
+}

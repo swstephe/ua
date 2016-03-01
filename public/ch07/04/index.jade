@@ -1,27 +1,17 @@
-doctype html
-html(ng-app='multi')
-  head
-    title Multiple Scopes
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      .ng-scope {
-        border: 1px solid blue;
-        border-left: 8px solid blue;
-        margin: 4px 12px;
-        padding: 4px;
-      }
-  body
-    .container-fluid
-      h2 Type in Your Dive Buddies
-      div(ng-repeat='n in [1,2]')
-        .row(ng-controller='buddyCtrl')
-          .col-sm-12(ng-init='index=n')
-            label Buddy # {{index}}:
-            input.form-control(ng-model='buddy',placeholder="Buddy #{{index}}")
-            span.help-block {{getMessage()}}
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'multi', []
-        .controller 'buddyCtrl', ($scope) ->
-          $scope.getMessage = -> "You typed: #{$scope.buddy}"
+extends ../layout
+
+block style
+  link(rel='stylesheet' href='site.css')
+
+block content
+  h2 Type in Your Dive Buddies
+  div(ng-repeat='n in [1,2]')
+    .row(ng-controller='buddyCtrl')
+      .col-sm-12(ng-init='index=n')
+        label Buddy # {{index}}:
+        input.form-control(ng-model='buddy',placeholder="Buddy #\{{index}}")
+        span.help-block {{getMessage()}}
+
+block script
+  script(type='text/javascript' src='multi.module.js')
+  script(type='text/javascript' src='buddy.controller.js')

@@ -1,0 +1,6 @@
+{
+    "index": {
+        "app": {"ng-app": "multi"},
+        "title": "Multiple Scopes"
+    }
+}
