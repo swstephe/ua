@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "yw.interesting"},
+        "body": {"ng-controller": "interestingCtrl"},
+        "title": "Interesting Dives"
+    }
+}

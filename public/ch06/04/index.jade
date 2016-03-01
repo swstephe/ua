@@ -1,39 +1,17 @@
-doctype html
-html
-  head
-    title Dive Log
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1 My Latest Dives
-      .row(ng-controller='diveLogCtrl')
-        .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
-          h3 {{dive.site}}
-          h4 {{dive.location}}
-          h2 {{dive.depth}} feet | {{dive.time}} min
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        dives = [{
-          site: "Abu Gotta Ramada"
-          location: "Hurghada, Egypt"
-          depth: 72
-          time: 54
-        },{
-          site: "Ponte Mahoon"
-          location: "Maehbourg, Mauritius"
-          depth: 54
-          time: 38
-        },{
-          site: "Molnar Cave"
-          location: "Budapest, Hungary"
-          depth: 98
-          time: 62
-        }]
-        angular.module 'diveLog', []
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.dives = dives
-        setTimeout(
-          -> angular.bootstrap(document, ['diveLog'])
-          3000
-        )
+extends ../layout
+
+block content
+  h1 My Latest Dives
+  .row(ng-controller='diveLogCtrl')
+    .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
+      h3 {{dive.site}}
+      h4 {{dive.location}}
+      h2 {{dive.depth}} feet | {{dive.time}} min
+
+block script
+  script(type='text/javascript' src='dives.js')
+  script(type='text/javascript' src='divelog.module.js')
+  script(type='text/javascript' src='divelog.controller.js')
+  script
+    :coffee-script
+      setTimeout (-> angular.bootstrap(document, ['diveLog'])), 3000

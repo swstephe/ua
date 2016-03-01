@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "events"},
+        "jquery": true,
+        "title": "Dive Buddy"
+    }
+}

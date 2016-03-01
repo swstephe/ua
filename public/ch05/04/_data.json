@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "yw.main"},
+        "body_attr": {"ng-controller": "moduleCtrl"},
+        "title": "Yw Modules"
+    }
+}

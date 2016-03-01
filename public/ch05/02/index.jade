@@ -1,19 +1,13 @@
-doctype html
-html
-  head
-    title Dive Buddy
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top':'24px'})
-    .container-fluid
-      .row
-        .col-sm-12
-          label(for='buddyEdit') Budd Name:
-          input#buddyEdit.form-control(ng-model='buddy')
-      .row
-        .col-sm-12
-          | Your dive buddy is&#32;
-          strong {{buddy}}
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.bootstrap document
+extends ../layout
+
+block content
+  .container-fluid
+    .row
+      .col-sm-12
+        label(for='buddyEdit') Buddy Name:
+        input#buddyEdit.form-control(ng-model='buddy')
+    .row
+      .col-sm-12 Your dive buddy is <strong>{{buddy}}</strong>
+
+block script
+  script(type='text/javascript' src='app.js')

@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "diveLog"},
+        "body": {"ng-controller": "diveLogCtrl"},
+        "title": "Dive Log (ng-class)"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": {"ng-app": "yw.planning"},
+        "body_attr": {"style": {"margin-top": "24px"}},
+        "title": "Dive Planner"
+    }
+}

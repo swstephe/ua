@@ -1,0 +1,9 @@
+doctype html
+html()&attributes(app || {})
+  head
+    title= title
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+  body()&attributes(body_attr || {})
+    block content
+    script(type='text/javascript' src='/angular/angular.js')
+    block script

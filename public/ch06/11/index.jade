@@ -1,17 +1,12 @@
-doctype html
-html(ng-app)
-  head
-    title Settings
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1 My Settings
-      .row
-        .col-sm-12
-          | Save my workspace&#32;
-          input(type='checkbox',ng-model='saveWks')
-      .row
-        .col-sm-12
-          | The "Save my workspace" setting:&#32;
-          input(type='checkbox',ng-checked='saveWks')
-    script(src='/angular/angular.js')
+extends ../layout
+
+block content
+  h1 My Settings
+  .row
+    .col-sm-12
+      | Save my workspace&#32;
+      input(type='checkbox',ng-model='saveWks')
+  .row
+    .col-sm-12
+      | The "Save my workspace" setting:&#32;
+      input(type='checkbox',ng-checked='saveWks')

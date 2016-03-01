@@ -1,0 +1,8 @@
+{
+    "index": {
+        "app": {"ng-app": "events"},
+        "body": {"ng-controller": "dragCtrl"},
+        "jquery": true,
+        "title": "Dive Buddy"
+    }
+}

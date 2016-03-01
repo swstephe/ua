@@ -1,39 +1,14 @@
-doctype html
-html(ng-app='yw.main')
-  head
-    title Yw Modules
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1 See the console for log messages
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'yw.main', [
-          'my.core'
-          'yw.divelog'
-          'yw.user'
-          'yw.charts'
-        ]
-        .config -> console.log 'yw.main: config()'
-        .run -> console.log 'yw.main: run()'
-        angular.module 'yw.divelog', []
-        .config -> console.log 'yw.divelog: config()'
-        .run -> console.log 'yw.divelog: run()'
-        angular.module 'yw.user', ['my.core']
-        .config -> console.log 'yw.user: config()'
-        .run -> console.log 'yw.user: run()'
-        angular.module 'my.core', ['my.core.comm', 'my.core.ui']
-        .config -> console.log 'my.core: config()'
-        .run -> console.log 'my.core: run()'
-        angular.module 'yw.charts', ['my.core']
-        .config -> console.log 'yw.charts: config() #1'
-        .run -> console.log 'yw.charts: run() #1'
-        .config -> console.log 'yw.charts: config() #2'
-        .run -> console.log 'yw.charts: run() #2'
-        angular.module 'my.core.comm', []
-        .config -> console.log 'my.core.comm: config()'
-        .run -> console.log 'my.core.comm: run()'
-        angular.module 'my.core.ui', []
-        .config -> console.log 'my.core.ui: config()'
-        .run -> console.log 'my.core.ui: run()'
+extends ../layout
+
+block content
+  .container-fluid
+    h1 See the console for log messages
+
+block script
+  script(type='text/javascript' src='yw.main.module.js')
+  script(type='text/javascript' src='yw.divelog.module.js')
+  script(type='text/javascript' src='yw.user.module.js')
+  script(type='text/javascript' src='my.core.module.js')
+  script(type='text/javascript' src='yw.charts.module.js')
+  script(type='text/javascript' src='my.core.comm.module.js')
+  script(type='text/javascript' src='my.core.ui.module.js')

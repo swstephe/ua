@@ -1,17 +1,12 @@
-doctype html
-html(ng-app)
-  head
-    title Dive Buddy
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top': '24px'})
-    .container-fluid
-      .row
-        .col-sm-12
-          label(for='buddyEdit') Buddy Name:
-          input#buddyEdit.form-control(ng-list,ng-model='buddies')
-      .row
-        .col-sm-12
-          h3 Your dive buddies are:
-          div(ng-repeat='buddy in buddies')
-            strong {{buddy}}
-    script(src='/angular/angular.js')
+extends ../layout
+
+block content
+  .row
+    .col-sm-12
+      label(for='buddyEdit') Buddy Name:
+      input#buddyEdit.form-control(ng-list,ng-model='buddies')
+  .row
+    .col-sm-12
+      h3 Your dive buddies are:
+      div(ng-repeat='buddy in buddies')
+        strong {{buddy}}

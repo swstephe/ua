@@ -1,36 +1,19 @@
-doctype html
-html(ng-app='yw.planning')
-  head
-    title Dive Planner
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top':'24px'})
-    .container-fluid(ng-controller='planCtrl')
-      .row
-        .col-sm-12
-          .form-group
-            label(for='maxDepth') Planned Depth (feet):
-            input#maxDepth.form-control(type='number',ng-model='maxDepth')
-            p(
-              style={'margin-top':'12px'}
-              ng-class="{'text-danger': needAdvancedCert()}"
-            ) {{message()}}
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        class PlanController
-          $inject: ['$scope', 'plannerSrv', 'messageSrv']
-          constructor: ($scope, plannerSrv, messageSrv) ->
-            $scope.maxDepth = 30
-            $scope.needAdvancedCert = -> plannerSrv.isDeep $scope.maxDepth
-            $scope.message = ->
-              messageSrv.certMessage plannerSrv.isDeep $scope.maxDepth
+extends ../layout
 
-        angular.module 'yw.planning', []
-        .factory 'plannerSrv', -> isDeep: (depth) -> depth > 60
-        .factory 'messageSrv', ->
-          certMessage: (isDeep) ->
-            if isDeep
-              "You need an advanced diving certification."
-            else
-              "The depth is shallow enough to take."
-        .controller 'planCtrl', PlanController
+block content
+  .container-fluid(ng-controller='planCtrl')
+    .row
+      .col-sm-12
+        .form-group
+          label(for='maxDepth') Planned Depth (feet):
+          input#maxDepth.form-control(type='number',ng-model='maxDepth')
+          p(
+            style={'margin-top':'12px'}
+            ng-class="{'text-danger': needAdvancedCert()}"
+          ) {{message()}}
+
+block script
+  script(type='text/javascript' src='yw.planning.module.js')
+  script(type='text/javascript' src='plannersrv.factory.js')
+  script(type='text/javascript' src='messagesrv.factory.js')
+  script(type='text/javascript' src='plan.controller.js')

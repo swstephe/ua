@@ -1,75 +1,25 @@
-doctype html
-html(ng-app='diveLog')
-  head
-    title Dive Log (ng-class)
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      .card {
-        border: 2p solid darkgray;
-        padding: 8px 16px;
-        padding-top: 0;
-        margin-top: 12px;
-      }
-  body(ng-controller='diveLogCtrl')
-    .container-fluid
-      h1 My Latest Dives (ng-class)
-      .row
-          .col-sm-6
-            select.form-control(
-              ng-model='selection'
-              ng-options='item.id as item.name for item in options'
-            )
-      .row
-        div(ng-class="size()",ng-repeat="dive in dives")
-          .card(ng-style="color()")
-            h3 {{dive.site}}
-            h4 {{dive.location}}
-            h2 {{dive.depth}} feet | {{dive.tiime}} min
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'diveLog', []
-        .controller 'diveLogCtrl', [
-          '$scope'
-          ($scope) ->
-            $scope.dives = [{
-              site: "Abu Gotta Ramada"
-              location: "Hurghada, Egypt"
-              depth: 72
-              time: 54
-            },{
-              site: "Ponte Mahoon"
-              location: "Maehbourg, Mauritius"
-              depth: 54
-              time: 38
-            },{
-              site: "Molnar Cave"
-              location: "Budapest, Hungary"
-              depth: 98
-              time: 62
-            }]
-            $scope.options = [
-              {id: 'sm', name: "Small cards"}
-              {id: 'smbl', name: "Small cards with blue background"}
-              {id: 'smrd', name: "Small cards with red background"}
-              {id: 'bg', name: "Big cards"}
-              {id: 'bgbl', name: "Big cards with blue background"}
-              {id: 'bgrd', name: "Big cards with red background"}
-            ]
-            $scope.selection = 'sm'
-            $scope.size = ->
-              switch
-                when $scope.selection.indexOf('sm') >= 0 then "col-sm-4"
-                else "col-sm-6"
-            $scope.color = ->
-              switch
-                when $scope.selection.indexOf('bl') >= 0
-                  'border': '2px solid navy'
-                  'background-color': 'navy'
-                  'color': 'white'
-                when $scope.selection.indexOf('rd') >= 0
-                  'border': '2px solid darkred'
-                  'background-color': 'darkred'
-                  'color': 'white'
-                else {}
-        ]
+extends ../layout
+
+block style
+  link(rel='stylesheet' href='site.css')
+
+block content
+  h1 My Latest Dives (ng-class)
+  .row
+      .col-sm-6
+        select.form-control(
+          ng-model='selection'
+          ng-options='item.id as item.name for item in options'
+        )
+  .row
+    div(ng-class="size()",ng-repeat="dive in dives")
+      .card(ng-style="color()")
+        h3 {{dive.site}}
+        h4 {{dive.location}}
+        h2 {{dive.depth}} feet | {{dive.tiime}} min
+
+block script
+  script(type='text/javascript' src='dives.js')
+  script(type='text/javascript' src='options.js')
+  script(type='text/javascript' src='divelog.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

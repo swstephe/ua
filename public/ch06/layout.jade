@@ -1,0 +1,13 @@
+doctype html
+html()&attributes(app || {})
+  head
+    title= title
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    block style
+  body()&attributes(body || {})
+    .container-fluid
+      block content
+    if jquery
+      script(type='text/javascript' src='/jquery-2.1.4.js')
+    script(type='text/javascript' src='/angular/angular.js')
+    block script
