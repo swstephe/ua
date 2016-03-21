@@ -33,16 +33,5 @@ html(ng-app='validation')
             value="Save"
         )
     script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'validation', []
-        .directive 'myEmpty', ->
-          require: 'ngModel'
-          restrict: 'A'
-          link: (scope, element, attrs, ctrl) ->
-            ctrl.$isEmpty = (value) ->
-              not angular.isDefined(value) or
-              value is null or
-              value is '' or
-              value is NaN or
-              value is '='
+    script(src='validation.module.js')
+    script(src='myempty.directive.js')

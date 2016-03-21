@@ -74,14 +74,5 @@ html(ng-app='messages')
         ) Save
     script(src='/angular/angular.js')
     script(src='/angular-messages/angular-messages.js')
-    script
-      :coffee-script
-        angular.module 'messages', ['ngMessages']
-        .controller 'MainCtrl', ($scope, $http) ->
-          $scope.myMessages = []
-          $scope.reqExpr = 'required'
-          $scope.minMaxExpr = ['minlength', 'maxlength']
-          $scope.emailExpr = 'email'
-          $scope.save = -> alert "Your email has been saved."
-          $http.get 'mymessages.json'
-          .then (response) -> $scope.myMessages = response.data
+    script(src='messages.module.js')
+    script(src='main.controller.js')

@@ -34,14 +34,6 @@ html(ng-app='validation')
             ng-disabled='simple.$invalid'
             value="Save"
         )
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'validation', []
-        .directive 'myNumber', ->
-          require: 'ngModel'
-          restrict: 'A'
-          link: (scope, element, attrs, ctrl) ->
-            ctrl.$validators.number = (value) ->
-              ctrl.$isEmpty(value) or
-              (angular.isNumber(value) and value >= 0.0)
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='validation.module.js')
+    script(type='text/javascript' src='mynumber.directive.js')
