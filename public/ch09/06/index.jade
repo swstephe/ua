@@ -8,18 +8,7 @@ html(ng-app='services')
       label.control-label Planned Maximum Depth (feet)
       input.form-control(type='number',ng-model='maxDepth')
       p.text-danger You need {{cert()}} certification for this dive.
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'services', []
-        .service 'depth', ->
-          @toMeters = (feet) -> feet / 3.28
-          @toFeet = (meters) -> meters * 3.28
-          @isDeep = (depthInFeet) -> depthInFeet > 120
-          true
-        .controller 'depthCtrl', ($scope, depth) ->
-          $scope.cert = ->
-            if depth.isDeep $scope.maxDepth
-              "Advanced Open Water"
-            else
-              "Open Water"
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='services.module.js')
+    script(type='text/javascript' src='depth.service.js')
+    script(type='text/javascript' src='depth.controller.js')

@@ -21,37 +21,10 @@ html(ng-app='diveLog')
           h3 {{dive.site}}
           h3 {{dive.location}}
           h3 {{dive | diveData : ' :: '}}
-    script(src='/angular/angular.js')
-    script(src='../dives.js')
-    script
-      :coffee-script
-        angular.module 'diveLog', []
-        .filter 'diveData', ->
-          (value, separator) ->
-            seperator = ' | ' unless angular.isDefined separator
-            if angular.isDefined(value.depth) and angular.isDefined(value.time)
-              "#{value.depth} feet#{separator}#{value.time} min"
-            else
-              value
-        .filter 'startChars', ($filter) ->
-          (items) ->
-            return items unless angular.isArray items
-            sorted = $filter('orderBy')(items, 'site')
-            result = []
-            lastChar = ''
-            for item in sorted
-              firstChar = item.site.charAt(0)
-              result.push firstChar if firstChar isnt lastChar
-              lastChar = firstChar
-            result
-        .filter 'startWith', ->
-          (items, startChar) ->
-            return items unless angular.isArray items
-            (item for item in items \
-              when startChar is '' or item.site.charAt(0) == startChar
-            )
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.limitValue = 100
-          $scope.dives = dives
-          $scope.activeLetter = ''
-          $scope.setFilter = (startChar) -> $scope.activeLetter = startChar
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='../dives.js')
+    script(type='text/javascript' src='divelog.module.js')
+    script(type='text/javascript' src='divedata.filter.js')
+    script(type='text/javascript' src='startchars.filter.js')
+    script(type='text/javascript' src='startwith.filter.js')
+    script(type='text/javascript' src='divelog.controller.js')

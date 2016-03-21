@@ -9,10 +9,7 @@ html(ng-app='diveLog')
       .row(ng-controller='diveLogCtrl')
         .col-sm-4(ng-repeat='dive in dives')
           pre {{dive || json}}
-    script(src='/angular/angular.js')
-    script(src="../dives.js")
-    script
-      :coffee-script
-        angular.module 'diveLog', []
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.dives = dives
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src="../dives.js")
+    script(type='text/javascript' src='divelog.module.js')
+    script(type='text/javascript' src='divelog.controller.js')

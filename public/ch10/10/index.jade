@@ -13,16 +13,11 @@ html(ng-app='diveLog')
             ng-model='searchKey'
           )
       .row(ng-controller='diveLogCtrl')
-        .col-sm-4(ng-repeat='dive in dives | filter: search')
+        .col-sm-4(ng-repeat='dive in dives | filter:search')
           h3 {{dive.site}}
           h3 {{dive.location}}
           h3 {{dive.depth}} feet | {{dive.time}} min
-    script(src='/angular/angular.js')
-    script(src='../dives.js')
-    script
-      :coffee-script
-        angular.module 'diveLog', []
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.dives = dives
-          $scope.search = (value, index) ->
-            value.site.indexOf($scope.searchKey) == 0
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='../dives.js')
+    script(type='text/javascript' src='divelog.module.js')
+    script(type='text/javascript' src='divelog.controller.js')

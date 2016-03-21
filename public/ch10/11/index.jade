@@ -17,14 +17,7 @@ html(ng-app='diveLog')
           h3 {{dive.site}}
           h3 {{dive.location}}
           h3 {{dive.depth}} feet | {{dive.time}} min
-    script(src='/angular/angular.js')
-    script(src='../dives.js')
-    script
-      :coffee-script
-        angular.module 'diveLog', []
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.dives = dives
-          $scope.comparer = (actual, expected) ->
-            angular.isDefined(expected) and
-            angular.isDefined(actual) and
-            actual.toString().indexOf(expected) == 0
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='../dives.js')
+    script(type='text/javascript' src='divelog.module.js')
+    script(type='text/javascript' src='divelog.controller.js')

@@ -8,30 +8,9 @@ html(ng-app='services')
       label.control-label Planned Maximum Depth (feet)
       input.form-control(type='number',ng-model='maxDepth')
       p.text-danger You need {{cert()}} certification for this dive.
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular.module 'services', []
-        .provider 'depth', ->
-          depthLimit = 120
-          setDepthLimit: (limit) -> depthLimit = limit
-          $get: ->
-            toMeters: (feet) -> feet / 3.28
-            toFeet: (meters) -> meters * 3.28
-            isDeep: (depthInFeet) -> depthInFeet > 120
-        .config (depthProvider) -> depthProvider.setDepthLimit 240
-        .config ($provide) ->
-          $provide.decorator 'depth', ($delegate) ->
-            isDeepFn = $delegate.isDeep
-            $delegate.isDeep = (depthInFeet) ->
-              console.log "isDeep entered. (#{depthInFeet})"
-              result = isDeepFn depthInFeet
-              console.log "isDeep exited. (#{result})"
-              result
-            $delegate
-        .controller 'depthCtrl', ($scope, depth) ->
-          $scope.cert = ->
-            if depth.isDeep $scope.maxDepth
-              "Advanced Open Water"
-            else
-              "Open Water"
+    script(type='text/javascript' src='/angular/angular.js')
+    script(type='text/javascript' src='services.module.js')
+    script(type='text/javascript' src='depth.provider.js')
+    script(type='text/javascript' src='depth.config.js')
+    script(type='text/javascript' src='services.config.js')
+    script(type='text/javascript' src='depth.controller.js')
