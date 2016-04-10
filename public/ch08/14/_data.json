@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-init": "zoneValue={timezone: '+0430'}"},
+        "title": "ngModelOptions timezone"
+    }
+}

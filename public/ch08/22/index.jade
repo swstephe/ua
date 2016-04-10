@@ -1,39 +1,35 @@
-doctype html
-html(ng-app='validation')
-  head
-    title Overriding number
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      input.ng-invalid-number {
-        border: 2px solid maroon;
-        background-color: lightpink;
-      }
-  body(style={'margin-top': '12px'})
-    .container
-      form(name='simple',novalidate)
-        .form-group
-          label.control-label Original "number"
-          input.form-control(
-              autofocus
-              type='number'
-              name='number1'
-              ng-model='number1'
-              required
-          )
-        .form-group
-          label.control-label Modified "number"
-          input.form-control(
-              type='number'
-              name='number2'
-              ng-model='number2'
-              my-number
-              required
-          )
-        input.btn.btn-primary(
-            type='submit'
-            ng-disabled='simple.$invalid'
-            value="Save"
-        )
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src='validation.module.js')
-    script(type='text/javascript' src='mynumber.directive.js')
+extends ../layout.jade
+block style
+  style.
+    input.ng-invalid-number {
+      border: 2px solid maroon;
+      background-color: lightpink;
+    }
+block content
+  form(name='simple',novalidate)
+    .form-group
+      label.control-label Original "number"
+      input.form-control(
+          autofocus
+          type='number'
+          name='number1'
+          ng-model='number1'
+          required
+      )
+    .form-group
+      label.control-label Modified "number"
+      input.form-control(
+          type='number'
+          name='number2'
+          ng-model='number2'
+          my-number
+          required
+      )
+    input.btn.btn-primary(
+        type='submit'
+        ng-disabled='simple.$invalid'
+        value="Save"
+    )
+append script
+  script(type='text/javascript' src='validation.module.js')
+  script(type='text/javascript' src='mynumber.directive.js')

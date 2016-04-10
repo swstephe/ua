@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-init": "gasType='air'"},
+        "title": "Radio button"
+    }
+}

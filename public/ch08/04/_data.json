@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-init": "nightDive='night';wreckDive=false"},
+        "title": "Root Scope"
+    }
+}

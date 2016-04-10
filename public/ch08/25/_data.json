@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": "messages",
+        "body_attr": {"ng-controller": "MainCtrl"},
+        "title": "Using ng-messages"
+    }
+}

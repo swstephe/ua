@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-init": "changeCount=0"},
+        "title": "Title input"
+    }
+}

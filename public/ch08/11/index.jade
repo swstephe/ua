@@ -1,26 +1,21 @@
-doctype html
-html(ng-app)
-  head
-    title ng-model-options
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top': '12px'})
-    .container
-      form(name='regform')
-        .form-group
-          label.control-label User name
-          input.form-control(
-              autofocus
-              name='userName'
-              ng-model='userName'
-              ng-model-options="{updateOn:'blur'}"
-          )
-        .form-group
-          label.control-label Email
-          input.form-control(
-              type='email'
-              name='email'
-              ng-model='email'
-          )
-      hr
-      p User name: {{userName}}
-    script(src='/angular/angular.js')
+extends ../layout.jade
+block content
+  form(name='regform')
+    .form-group
+      label.control-label User name
+      input.form-control(
+          autofocus
+          name='userName'
+          ng-model='userName'
+          ng-model-options="{updateOn:'blur'}"
+      )
+    .form-group
+      label.control-label Email
+      input.form-control(
+          type='email'
+          name='email'
+          ng-model='email'
+      )
+  hr
+  p User name: {{userName}}
+  p Email: {{email}}

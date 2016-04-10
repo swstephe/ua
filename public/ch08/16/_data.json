@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-init": "answer=''"},
+        "title": "Form Submit"
+    }
+}

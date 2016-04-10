@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": "dropdown",
+        "cont_attr": {"ng-controller": "sitesCtrl"},
+        "title": "Dropdown list (ng-options)"
+    }
+}

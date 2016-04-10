@@ -1,37 +1,33 @@
-doctype html
-html(ng-app='validation')
-  head
-    title Overriding $empty
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      input.ng-invalid-required {
-        border: 2px solid maroon;
-        background-color: lightpink;
-      }
-  body(style={'margin-top': '12px'})
-    .container
-      form(name='simple',novalidate)
-        .form-group
-          label.control-label Original "empty"
-          input.form-control(
-              autofocus
-              name='empty1'
-              ng-model='empty1'
-              required
-          )
-        .form-group
-          label.control-label Modified "Empty"
-          input.form-control(
-              name='empty2'
-              ng-model='empty2'
-              my-empty
-              required
-          )
-        input.btn.btn-primary(
-            type='submit'
-            ng-disabled='simple.$invalid'
-            value="Save"
-        )
-    script(src='/angular/angular.js')
-    script(src='validation.module.js')
-    script(src='myempty.directive.js')
+extends ../layout.jade
+block style
+  style.
+    input.ng-invalid-required {
+      border: 2px solid maroon;
+      background-color: lightpink;
+    }
+block content
+  form(name='simple',novalidate)
+    .form-group
+      label.control-label Original "empty"
+      input.form-control(
+          autofocus
+          name='empty1'
+          ng-model='empty1'
+          required
+      )
+    .form-group
+      label.control-label Modified "Empty"
+      input.form-control(
+          name='empty2'
+          ng-model='empty2'
+          my-empty
+          required
+      )
+    input.btn.btn-primary(
+        type='submit'
+        ng-disabled='simple.$invalid'
+        value="Save"
+    )
+append script
+  script(type='text/javascript' src='validation.module.js')
+  script(type='text/javascript' src='myempty.directive.js')

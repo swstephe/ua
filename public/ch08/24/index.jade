@@ -1,27 +1,23 @@
-doctype html
-html(ng-app='validation')
-  head
-    title Overriding number
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      input.ng-invalid-domain {
-        border: 2px solid maroon;
-        background-color: lightpink;
-      }
-      .checking {
-        border: 4px dotted darkgray;
-      }
-  body(style={'margin-top': '12px'})
-    .container
-      form(name='simple',novalidate)
-        .form-group
-          label.control-label A valid domain name
-          input.form-control(
-              autofocus
-              type='domainName'
-              ng-model='domainName'
-              domain
-          )
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src='validation.module.js')
-    script(type='text/javascript' src='domain.directive.js')
+extends ../layout.jade
+block style
+  style.
+    input.ng-invalid-domain {
+      border: 2px solid maroon;
+      background-color: lightpink;
+    }
+    .checking {
+      border: 4px dotted darkgray;
+    }
+block content
+  form(name='simple',novalidate)
+    .form-group
+      label.control-label A valid domain name
+      input.form-control(
+          autofocus
+          type='domainName'
+          ng-model='domainName'
+          domain
+      )
+append script
+  script(type='text/javascript' src='validation.module.js')
+  script(type='text/javascript' src='domain.directive.js')
