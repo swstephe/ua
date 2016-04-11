@@ -1,43 +1,14 @@
-doctype html
-html(ng-app='controls')
-  head
-    title Pickup control
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h2 Select a value (click the button)
-      div(
-        my-pickup-list
-        ng-init='selected="Alain"'
-        ng-model='selected'
-        values="Joe;Cecile;Alain"
-      )
-      h3 The selected value is {{selected}}
-      button.btn.btn-primary(ng-click='selected="Jack"') Change to Jack
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular
-        .module 'controls', []
-        .directive 'myPickupList', ->
-          require: 'ngModel'
-          scope: {}
-          controller: ($scope) ->
-            $scope.editing = false
-            $scope.startEdit = -> $scope.editing = true
-            $scope.selectValue = (value) ->
-              $scope.selectedValue = value
-              $scope.editing = false
-          templateUrl: '11a.html'
-          link: (scope, element, attrs, ctrl) ->
-            valueAttr = attrs['values']
-            if angular.isDefined valueAttr
-              scope.values = valueAttr.split ';'
-            else
-              scope.values = []
-
-            ctrl.$render = -> scope.selectedValue = ctrl.$modelValue
-            scope.$watch(
-              (watchScope) -> watchScope.$eval 'selectedValue'
-              -> ctrl.$setViewValue scope.selectedValue
-            )
+extends ../layout
+block content
+  h2 Select a value (click the button)
+  div(
+    my-pickup-list
+    ng-init='selected="Alain"'
+    ng-model='selected'
+    values="Joe;Cecile;Alain"
+  )
+  h3 The selected value is {{selected}}
+  button.btn.btn-primary(ng-click='selected="Jack"') Change to Jack
+append script
+  script(type='text/javascript' src='controls.module.js')
+  script(type='text/javascript' src='mypickuplist.directive.js')

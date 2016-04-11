@@ -1,0 +1,7 @@
+{
+    "index": {
+        "app": "fish",
+        "body_attr": {"style": {"margin-top": "12px"}},
+        "title": "Isolated Scope"
+    }
+}

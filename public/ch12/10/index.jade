@@ -1,67 +1,33 @@
-doctype html
-html(ng-app='controls')
-  head
-    title Switch control
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      .switch {
-        padding: 4px;
-        width: 40px;
-        display: inline-block;
-        text-align: center;
-        cursor: pointer;
-      }
-      .switch.yes {
-        border: 2px solid green;
-        background-color: green;
-        color: white;
-      }
-      .switch.no {
-        border: 2px solid red;
-        color: red;
-      }
-  body
-    .container-fluid
-      h2 Switch Control
-      form(name='diveForm')
-        label.control-label Switch #1
-        div(my-switch-control,name='switch1',ng-model='switch1Value')
-        label.control-label Switch #2
-        div(my-switch-control,name='switch2',ng-model='switch2Value')
-      hr
-      h3 The value of Switch #1: {{switch1Value}}
-      h3 The value of Switch #2: {{switch2Value}}
-      h3 This form has {{diveForm.switchCount}} switches
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular
-        .module 'controls', []
-        .directive 'mySwitchControl', ->
-          require: ['ngModel', '^form']
-          scope: {}
-          link: (scope, element, attrs, ctrls) ->
-            ctrl = ctrls[0]
-            formCtrl = ctrls[1]
-            element.on 'click', ->
-              scope.stateValue = not scope.stateValue
-              scope.$apply (-> ctrl.$setViewValue scope.stateValue)
-              ctrl.$render()
-            ctrl.$render = ->
-              if scope.stateValue
-                element.removeClass 'no'
-                element.addClass 'yes'
-                element.text "Yes"
-              else
-                element.removeClass 'yes'
-                element.addClass 'no'
-                element.text "No"
-            scope.stateValue = false
-            element.addClass 'switch'
-            ctrl.$setViewValue scope.stateValue
-            ctrl.$render()
-            if angular.isDefined(formCtrl)
-              if angular.isDefined(formCtrl.switchCount)
-                formCtrl.switchCount++
-              else
-                formCtrl.switchCount = 1
+extends ../layout
+block style
+  style.
+    .switch {
+      padding: 4px;
+      width: 40px;
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+    }
+    .switch.yes {
+      border: 2px solid green;
+      background-color: green;
+      color: white;
+    }
+    .switch.no {
+      border: 2px solid red;
+      color: red;
+    }
+block content
+  h2 Switch Control
+  form(name='diveForm')
+    label.control-label Switch #1
+    div(my-switch-control,name='switch1',ng-model='switch1Value')
+    label.control-label Switch #2
+    div(my-switch-control,name='switch2',ng-model='switch2Value')
+  hr
+  h3 The value of Switch #1: {{switch1Value}}
+  h3 The value of Switch #2: {{switch2Value}}
+  h3 This form has {{diveForm.switchCount}} switches
+append script
+  script(type='text/javascript' src='controls.module.js')
+  script(type='text/javascript' src='myswitchcontrol.directive.js')

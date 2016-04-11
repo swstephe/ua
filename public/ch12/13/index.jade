@@ -1,44 +1,15 @@
-doctype html
-html(ng-app='controls')
-  head
-    title Top dives
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h2 Top dives
-      div(ng-init='dive={site:"El Aroukh",location:"Giftun, Egypt",depth:14.2,time:56}')
-      div(
-        top-dive
-        header="The best dive of this month"
-        footer="Stay tuned!"
-      )
-        h3 {{dive.site}}
-        h4 {{dive.location}}
-        h2 {{dive.depth}}m | {{dive.time}}min
-    script(src='/angular/angular.js')
-    script
-      :coffee-script
-        angular
-        .module 'controls', []
-        .directive 'topDive', ->
-          restrict: 'A'
-          link: (scope, element, attrs) ->
-            children = element.children()
-            element.children().remove()
-            panel = angular.element '<div>'
-            panel.addClass 'panel panel-primary'
-            header = angular.element '<div>'
-            header.addClass 'panel-heading'
-            header.text attrs.header
-            panel.append header
-            body = angular.element '<div>'
-            body.addClass 'panel-body'
-            panel.append body
-            for child in children
-              body.append child
-            element.append panel
-            footer = angular.element '<div>'
-            footer.addClass 'panel-footer'
-            footer.text attrs.footer
-            panel.append footer
-
+extends ../layout
+block content
+  h2 Top dives
+  div(ng-init='dive={site:"El Aroukh",location:"Giftun, Egypt",depth:14.2,time:56}')
+  div(
+    top-dive
+    header="The best dive of this month"
+    footer="Stay tuned!"
+  )
+    h3 {{dive.site}}
+    h4 {{dive.location}}
+    h2 {{dive.depth}}m | {{dive.time}}min
+append script
+  script(type='text/javascript' src='controls.module.js')
+  script(type='text/javascript' src='topdive.directive.js')

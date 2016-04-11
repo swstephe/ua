@@ -38,6 +38,7 @@ html(ng-app='diveLog')
         .col-sm-4
           button.btn.btn-default(ng-click='style=1') Colorful
           button.btn.btn-default(ng-click='style=2') Grayscale
+        .col-sm-4 {{style}}
         .col-sm-4.col-sm-offset-8
           input.form-control.input-lg(
             placeholder="Search"
@@ -48,33 +49,6 @@ html(ng-app='diveLog')
           dive-log-card
     script(src='/angular/angular.js')
     script(src='dives.js')
-    script
-      :coffee-script
-        angular
-        .module 'diveLog', []
-        .controller 'diveLogCtrl', ($scope) ->
-          $scope.dives = dives
-          $scope.style = 1
-        .directive 'diveLogCard', ->
-          createCard = (scope, element) ->
-            div = angular.element '<div>'
-            div.addClass if scope.style is 1 then 'logEntry1' else 'logEntry2'
-            site = angular.element '<h3>'
-            site.text scope.dive.site
-            location = angular.element '<h4>'
-            location.text scope.dive.location
-            diveData = angular.element '<h2>'
-            diveData.text "#{scope.dive.depth} feet | #{scope.dive.time} min"
-            if scope.style is 1
-              div.append site
-              div.append location
-              div.append diveData
-            else
-              div.append diveData
-              div.append site
-              div.append location
-            div
-          restrict: 'E'
-          link: (scope, element, attrs) ->
-            div = createCard scope, element
-            element.append div
+    script(src='divelog.module.js')
+    script(src='divelog.controller.js')
+    script(src='divelogcard.directive.js')
