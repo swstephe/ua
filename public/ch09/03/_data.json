@@ -1,0 +1,6 @@
+{
+    "index": {
+        "body_attr": {"ng-controller": "versionCtrl"},
+        "title": "Constant Service"
+    }
+}

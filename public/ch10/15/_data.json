@@ -1,0 +1,5 @@
+{
+    "index": {
+        "cont_attr": {"ng-controller": "diveLogCtrl"}
+    }
+}

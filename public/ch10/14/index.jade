@@ -1,24 +1,19 @@
-doctype html
-html(ng-app='diveLog')
-  head
-    title Dive Log
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid(ng-controller='diveLogCtrl')
-      h1 My Latest Dives
-      .row
-        .col-sm-4.col-sm-offset-8
-          input.form-control.input-lg(
-            type='number'
-            placeholder="Limit to items"
-            ng-model='limitValue'
-          )
-      .row
-        .col-sm-4(ng-repeat="dive in dives | limitTo: limitValue")
-          h3 {{dive.site}}
-          h3 {{dive.location}}
-          h3 {{dive.depth}} feet | {{dive.time}} min
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src='../dives.js')
-    script(type='text/javascript' src='divelog.module.js')
-    script(type='text/javascript' src='divelog.controller.js')
+extends ../layout
+block content
+  h1 My Latest Dives
+  .row
+    .col-sm-4.col-sm-offset-8
+      input.form-control.input-lg(
+        type='number'
+        placeholder="Limit to items"
+        ng-model='limitValue'
+      )
+  .row
+    .col-sm-4(ng-repeat="dive in dives | limitTo: limitValue")
+      h3 {{dive.site}}
+      h3 {{dive.location}}
+      h3 {{dive.depth}} feet | {{dive.time}} min
+append script
+  script(type='text/javascript' src='../dives.js')
+  script(type='text/javascript' src='divelog.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

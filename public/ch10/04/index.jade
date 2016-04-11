@@ -1,19 +1,14 @@
-doctype html
-html(ng-app='diveLog')
-  head
-    title Dive Log
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1 My Latest Dives
-      .row(ng-controller='diveLogCtrl')
-        .col-sm-4(ng-repeat='dive in dives')
-          h3 {{dive.site}}
-          h4 {{dive.location}}
-          h2 {{dive.depth}} feet | {{dive.time}} min
-          h4(ng-show='$index % 2 == 0') {{dive.divedOn | date: 'short'}}
-          h4(ng-show='$index % 2 == 1') {{dive.divedOn | date: 'MMMM dd, yyyy'}}
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src="../dives.js")
-    script(type='text/javascript' src='divelog.module.js')
-    script(type='text/javascript' src='divelog.controller.js')
+extends ../layout
+block content
+  h1 My Latest Dives
+  .row(ng-controller='diveLogCtrl')
+    .col-sm-4(ng-repeat='dive in dives')
+      h3 {{dive.site}}
+      h4 {{dive.location}}
+      h2 {{dive.depth}} feet | {{dive.time}} min
+      h4(ng-show='$index % 2 == 0') {{dive.divedOn | date: 'short'}}
+      h4(ng-show='$index % 2 == 1') {{dive.divedOn | date: 'MMMM dd, yyyy'}}
+append script
+  script(type='text/javascript' src="../dives.js")
+  script(type='text/javascript' src='divelog.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

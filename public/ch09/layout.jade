@@ -1,0 +1,11 @@
+doctype html
+html(ng-app='services')
+  head
+    title= title
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    block style
+  body()&attributes(body_attr || {'style': {'margin-top': '12px'}})
+    .container()&attributes(cont_attr || {})
+      block content
+    block script
+      script(type='text/javascript' src='/angular/angular.js')

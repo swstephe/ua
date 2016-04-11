@@ -1,17 +1,12 @@
-doctype html
-html(ng-app='diveLog')
-  head
-    title Dive Log
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body
-    .container-fluid
-      h1 My Latest Dives
-      .row(ng-controller='diveLogCtrl')
-        .col-sm-4(ng-repeat='dive in dives')
-          h3 {{dive.site | uppercase}}
-          h4 {{dive.location | lowercase}}
-          h2 {{dive.depth}} feet | {{dive.time}} min
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src="../dives.js")
-    script(type='text/javascript' src='divelog.module.js')
-    script(type='text/javascript' src='divelog.controller.js')
+extends ../layout.jade
+block content
+  h1 My Latest Dives
+  .row(ng-controller='diveLogCtrl')
+    .col-sm-4(ng-repeat='dive in dives')
+      h3 {{dive.site | uppercase}}
+      h4 {{dive.location | lowercase}}
+      h2 {{dive.depth}} feet | {{dive.time}} min
+append script
+  script(type='text/javascript' src="../dives.js")
+  script(type='text/javascript' src='divelog.module.js')
+  script(type='text/javascript' src='divelog.controller.js')

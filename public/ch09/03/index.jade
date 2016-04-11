@@ -1,12 +1,7 @@
-doctype html
-html(ng-app='services')
-  head
-    title Constant Service
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(ng-controller='versionCtrl')
-    .container
-      h2 This is Younderwater v{{getVersion()}}
-      button.btn.btn-primary(ng-click='incMinor()') Increment minor number
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src='services.module.js')
-    script(type='text/javascript' src='version.controller.js')
+extends ../layout.jade
+block content
+  h2 This is Younderwater v{{getVersion()}}
+  button.btn.btn-primary(ng-click='incMinor()') Increment minor number
+append script
+  script(type='text/javascript' src='services.module.js')
+  script(type='text/javascript' src='version.controller.js')

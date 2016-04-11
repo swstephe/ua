@@ -1,0 +1,10 @@
+doctype html
+html()&attributes({'ng-app':app || 'diveLog'})
+  head
+    title= title || "Dive Log"
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+  body
+    .container-fluid()&attributes(cont_attr || {})
+      block content
+    block script
+      script(type='text/javascript' src='/angular/angular.js')

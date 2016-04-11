@@ -1,13 +1,8 @@
-doctype html
-html(ng-app='services')
-  head
-    title Text input
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-  body(style={'margin-top': '12px'})
-    .container(ng-controller='depthCtrl')
-      label.control-label Planned Maximum Depth (feet)
-      input.form-control(type='number',ng-model='maxDepth')
-      p.text-danger You need {{cert()}} certification for this dive.
-    script(type='text/javascript' src='/angular/angular.js')
-    script(type='text/javascript' src='services.module.js')
-    script(type='text/javascript' src='depth.controller.js')
+extends ../layout.jade
+block content
+  label.control-label Planned Maximum Depth (feet)
+  input.form-control(type='number',ng-model='maxDepth')
+  p.text-danger You need {{cert()}} certification for this dive.
+append script
+  script(type='text/javascript' src='services.module.js')
+  script(type='text/javascript' src='depth.controller.js')

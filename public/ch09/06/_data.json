@@ -1,0 +1,6 @@
+{
+    "index": {
+        "cont_attr": {"ng-controller": "depthCtrl"},
+        "title": "Text input"
+    }
+}
