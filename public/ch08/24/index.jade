@@ -1,13 +1,6 @@
 extends ../layout
 block style
-  style.
-    input.ng-invalid-domain {
-      border: 2px solid maroon;
-      background-color: lightpink;
-    }
-    .checking {
-      border: 4px dotted darkgray;
-    }
+  link(rel='stylesheet' href='site.css')
 block content
   form(name='simple',novalidate)
     .form-group

@@ -1,18 +1,6 @@
 extends ../layout
 block style
-  style.
-    .ng-scope {
-      border: 1px solid blue;
-      border-left: 8px solid blue;
-      margin: 4px 12px;
-      padding: 4px;
-    }
-    .ng-isolate-scope {
-      border: 1px dotted red;
-      border-left: 8px dotted red;
-      margin: 4px 12px;
-      padding: 4px;
-    }
+  link(rel='stylesheet' href='site.css')
 block template
   script#otherName(type='text/ng-template')
     h3 {{language}} name:

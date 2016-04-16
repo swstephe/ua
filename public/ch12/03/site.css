@@ -1,0 +1,6 @@
+.ng-scope {
+    border: 1px solid blue;
+    border-left: 8px solid blue;
+    margin: 4px 12px;
+    padding: 4px;
+}

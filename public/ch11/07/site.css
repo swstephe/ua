@@ -1,0 +1,14 @@
+.logEntry {
+    background-color: navy;
+    padding: 2px 16px;
+}
+.logEntry > h2 {
+    color: yellow;
+}
+.logEntry > h3 {
+    color: cyan;
+}
+.logEntry > h4 {
+    color: white;
+}
+

@@ -3,20 +3,7 @@ html(ng-app='diveLog')
   head
     title Dive Log with Templates
     link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    style.
-      .logEntry {
-        background-color: navy;
-        padding: 2px 16px;
-      }
-      .logEntry > h2 {
-        color: yellow;
-      }
-      .logEntry > h3 {
-        color: cyan;
-      }
-      .logEntry > h4 {
-        color: white;
-      }
+    link(rel='stylesheet',href='site.css')
     script#cardTmpl(type='text/ng-template')
       .logEntry
         h3 {{dive.site}}
