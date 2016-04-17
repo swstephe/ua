@@ -1,6 +1,7 @@
 {
-  "index": {
-    "app": {"ng-app": true},
-    "title": "Dive Log (AngularJS)"
-  }
+    "index": {
+        "app": {"ng-app": true},
+        "scripts": ["/angular/angular.js"],
+        "title": "Dive Log (AngularJS)"
+    }
 }

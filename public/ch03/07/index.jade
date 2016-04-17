@@ -1,39 +1,11 @@
-extends ../layout
+// Optional title bar
+.current-spot
+  .container-fluid(ng-show="!isActive('main')")
+    .container
+      h3 {{getTitle()}}
 
-block navbar
-  a.navbar-brand(href='#/main', ng-click='showMain()').
-    Younderwater Admin
-  #adminMenu.collapse.navbar-collapse
-    ul.nav.navbar-nav
-      li(yw-menu-id='Locations')
-        a(href='#/locations') Locations
-      li(yw-menu-id='Sites')
-        a(href='#/sites') Dive Sites
-      li(yw-menu-id='Types')
-        a(href='#/types') Dive Types
-
-block content
-  // Optional title bar
-  .current-spot
-    .container-fluid(ng-show="!isActive('main')")
-      .container
-        h3 {{getTitle()}}
-
-  // View content
-  .main-content
-    .container-fluid
-      .container
-        div(ng-view)
-
-block script
-  script(type='text/javascript' src='/angular-route/angular-route.js')
-  script(type='text/javascript' src='app.module.js')
-  script(type='text/javascript' src='current.factory.js')
-  script(type='text/javascript' src='ywactivemenu.directive.js')
-  script(type='text/javascript' src='ywmenuid.directive.js')
-  script(type='text/javascript' src='admin.controller.js')
-  script(type='text/javascript' src='main.controller.js')
-  script(type='text/javascript' src='locations.controller.js')
-  script(type='text/javascript' src='sites.controller.js')
-  script(type='text/javascript' src='types.controller.js')
-  script(type='text/javascript' src='app.config.js')
+// View content
+.main-content
+  .container-fluid
+    .container
+      div(ng-view)

@@ -1,0 +1,8 @@
+{
+    "index": {
+        "scripts": [
+            "app.module.js",
+            "sideedit.controller.js"
+        ]
+    }
+}

@@ -6,7 +6,8 @@ html(ng-app='app')
     link(rel='stylesheet' href='../site.css')
   body
     .container-fluid(ng-controller='siteEditCtrl')
-      block content
+      != yield
     script(type='text/javascript' src='/angular/angular.js')
     script(type='text/javascript' src='../sites.js')
-    block script
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

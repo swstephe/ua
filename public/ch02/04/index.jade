@@ -1,58 +1,51 @@
-extends ../layout
+h1 Dive Sites Maintenance
 
-block content
-  h1 Dive Sites Maintenance
+div(ng-show="view=='list'")
+  .row
+    .col-sm-12
+      button.btn.btn-primary.btn-lg(ng-click='startAdd()') Add new dive
+  h2 List of Dive Sites
+  .row(ng-repeat='site in sites' ng-class='{oddRow: $index%2 == 0}')
+    .col-sm-8
+      h4 {{$index + 1}}: {{site}}
+    .col-sm-4(style={'margin-top': '5px'})
+      .pull-right
+        button.btn.btn-warning.btn-sm(ng-click='startEdit($index)') Edit
+        | &nbsp;
+        button.btn.btn-danger.btn-sm Delete
 
-  div(ng-show="view=='list'")
-    .row
-      .col-sm-12
-        button.btn.btn-primary.btn-lg(ng-click='startAdd()') Add new dive
-    h2 List of Dive Sites
-    .row(ng-repeat='site in sites',ng-class='{oddRow: $index%2 == 0}')
-      .col-sm-8
-        h4 {{$index + 1}}: {{site}}
-      .col-sm-4(style={'margin-top': '5px'})
-        .pull-right
-          button.btn.btn-warning.btn-sm(ng-click='startEdit($index)') Edit
-          | &nbsp;
-          button.btn.btn-danger.btn-sm Delete
+div(ng-show="view=='add'")
+  h3 Specify the name of the dive site:
+  .row
+    .col-sm-6
+      input.form-control.input-lg(
+        type='text'
+        placeholder='site name'
+        ng-model='siteBox'
+      )
+  .row
+    .col-sm-6
+      button.btn.btn-success.btn(
+        ng-disabled="siteBox==''"
+        ng-click='add()'
+      ) Add
+      button.btn.btn-warning.btn(ng-click='cancel()') Cancel
 
-  div(ng-show="view=='add'")
-    h3 Specify the name of the dive site:
-    .row
-      .col-sm-6
-        input.form-control.input-lg(
-          type='text'
-          placeholder='site name'
-          ng-model='siteBox'
-        )
-    .row
-      .col-sm-6
-        button.btn.btn-success.btn(
-          ng-disabled="siteBox==''"
-          ng-click='add()'
-        ) Add
-        button.btn.btn-warning.btn(ng-click='cancel()') Cancel
-
-  div(ng-show="view=='edit'")
-    h3 Edit the name of the dive site:
-    .row
-      .col-sm-6
-        input.form-control.input-lg(
-          type='text'
-          placeholder='site name'
-          ng-model='siteBox'
-        )
-    .row(style={'margin-top': '12px'})
-      .col-sm-6
-        button.btn.btn-success.btn(
-          ng-disabled="siteBox==''"
-          ng-click='save()'
-        ) Save
-        button.btn.btn-warning.btn(
-          ng-click='cancel()'
-        ) Cancel
-
-block script
-  script(type='text/javascript' src='app.module.js')
-  script(type='text/javascript' src='siteedit.controller.js')
+div(ng-show="view=='edit'")
+  h3 Edit the name of the dive site:
+  .row
+    .col-sm-6
+      input.form-control.input-lg(
+        type='text'
+        placeholder='site name'
+        ng-model='siteBox'
+      )
+  .row(style={'margin-top': '12px'})
+    .col-sm-6
+      button.btn.btn-success.btn(
+        ng-disabled="siteBox==''"
+        ng-click='save()'
+      ) Save
+      button.btn.btn-warning.btn(
+        ng-click='cancel()'
+      ) Cancel

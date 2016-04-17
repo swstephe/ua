@@ -1,0 +1,8 @@
+{
+    "index": {
+        "scripts": [
+            "app.module.js",
+            "admin.controller.js"
+        ]
+    }
+}

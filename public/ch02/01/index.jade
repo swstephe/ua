@@ -1,20 +1,13 @@
-extends ../layout
-
-block content
-  h1 Dive Sites Maintenance
-  .row
-    .col-sm-12
-      button.btn.btn-primary.btn-lg Add new dive
-  h2 List of Dive Sites
-  .row(ng-repeat='site in sites',ng-class='{oddRow: $index%2 == 0}')
-    .col-sm-8
-      h4 {{$index + 1}}: {{site}}
-    .col-sm-4(style={'margin-top': '5px'})
-      .pull-right
-        button.btn.btn-warning.btn-sm Edit
-        | &nbsp;
-        button.btn.btn-danger.btn-sm Delete
-
-block script
-  script(type='text/javascript' src='app.module.js')
-  script(type='text/javascript' src='siteedit.controller.js')
+h1 Dive Sites Maintenance
+.row
+  .col-sm-12
+    button.btn.btn-primary.btn-lg Add new dive
+h2 List of Dive Sites
+.row(ng-repeat='site in sites' ng-class='{oddRow: $index%2 == 0}')
+  .col-sm-8
+    h4 {{$index + 1}}: {{site}}
+  .col-sm-4(style={'margin-top': '5px'})
+    .pull-right
+      button.btn.btn-warning.btn-sm Edit
+      | &nbsp;
+      button.btn.btn-danger.btn-sm Delete

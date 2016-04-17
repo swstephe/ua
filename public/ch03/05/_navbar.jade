@@ -1,0 +1,7 @@
+a.navbar-brand(href='#/main') Younderwater Admin
+#adminMenu.collapse.navbar-collapse
+  ul.nav.navbar-nav
+    li(ng-class="{active: isActive('Locations')}")
+      a(href='#/locations') Locations
+    li(ng-class="{active: isActive('Sites')}")
+      a(href='#/sites') Dive Sites

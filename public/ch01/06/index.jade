@@ -1,27 +1,15 @@
-extends ../layout
-
-block content
-  h1 My Latest Dives (ng-controller)
-  .row
-    .col-sm-5
-      button.btn.btn-primary.btn-lg(
-        ng-click='addDive()'
-        ng-disabled='!enableAdd()'
-      ) Add new dive
-      button.btn.btn-danger.btn-lg(ng-click='clearDives()') Clear dives
-    .col-sm-4.col-sm-offset-3
-      input.form-control.input-lg(
-        placeholder="Search"
-        ng-model='searchKey'
-      )
-  .row
-    .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
-      h3 {{dive.site}}
-      h4 {{dive.location}}
-      h2 {{dive.depth}} feet | {{dive.time}} min
-
-block script
-  script(type='text/javascript' src='/angular/angular.js')
-  script(type='text/javascript' src='../dives.js')
-  script(type='text/javascript' src='app.module.js')
-  script(type='text/javascript' src='divelog.controller.js')
+h1 My Latest Dives (ng-controller)
+.row
+  .col-sm-5
+    button.btn.btn-primary.btn-lg(
+      ng-click='addDive()'
+      ng-disabled='!enableAdd()'
+    ) Add new dive
+    button.btn.btn-danger.btn-lg(ng-click='clearDives()') Clear dives
+  .col-sm-4.col-sm-offset-3
+    input.form-control.input-lg(placeholder="Search" ng-model='searchKey')
+.row
+  .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
+    h3 {{dive.site}}
+    h4 {{dive.location}}
+    h2 {{dive.depth}} feet | {{dive.time}} min

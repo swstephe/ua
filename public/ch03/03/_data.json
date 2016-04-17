@@ -1,0 +1,19 @@
+{
+    "index": {
+        "scripts": [
+            "/angular-route/angular-route.js",
+            "app.module.js",
+            "app.config.js",
+            "admin.controller.js"
+        ]
+    },
+    "locations": {
+        "layout": false
+    },
+    "main": {
+        "layout": false
+    },
+    "sites": {
+        "layout": false
+    }
+}

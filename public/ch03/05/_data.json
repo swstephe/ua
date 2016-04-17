@@ -1,20 +1,15 @@
 {
     "index": {
-        "app": "main",
         "scripts": [
             "/angular-route/angular-route.js",
-            "core.module.js",
+            "app.module.js",
             "current.factory.js",
             "ywactivemenu.directive.js",
-            "ywmenuid.directive.js",
-            "main.module.js",
             "admin.controller.js",
             "main.controller.js",
-            "main.config.js",
-            "app.module.js",
             "locations.controller.js",
             "sites.controller.js",
-            "types.controller.js"
+            "app.config.js"
         ]
     },
     "locations": {
@@ -24,9 +19,6 @@
         "layout": false
     },
     "sites": {
-        "layout": false
-    },
-    "types": {
         "layout": false
     }
 }

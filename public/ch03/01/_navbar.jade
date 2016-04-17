@@ -1,0 +1,8 @@
+// Partial Navbar
+a.navbar-brand(href='#',ng-click='showMain()') Younderwater Admin
+#adminMenu.collapse.navbar-collapse
+  ul.nav.navbar-nav
+    li(ng-class="{active: isActive('Locations')}")
+      a(href='#',ng-click='showLocations()') Locations
+    li(ng-class="{active: isActive('Sites')}")
+      a(href='#',ng-click='showDiveSites()') Dive Sites

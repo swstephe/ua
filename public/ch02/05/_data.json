@@ -1,0 +1,8 @@
+{
+    "index": {
+        "scripts": [
+            "app.module.js",
+            "siteedit.controller.js"
+        ]
+    }
+}

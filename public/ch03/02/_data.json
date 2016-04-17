@@ -1,0 +1,17 @@
+{
+    "index": {
+        "scripts": [
+            "app.module.js",
+            "admin.controller.js"
+        ]
+    },
+    "diveSites": {
+        "layout": false
+    },
+    "locations": {
+        "layout": false
+    },
+    "main": {
+        "layout": false
+    }
+}

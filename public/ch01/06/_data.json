@@ -2,6 +2,12 @@
     "index": {
         "app": {"ng-app": "app"},
         "controller": {"ng-controller": "diveLogCtrl"},
+        "scripts": [
+            "/angular/angular.js",
+            "../dives.js",
+            "app.module.js",
+            "divelog.controller.js"
+        ],
         "title": "Dive Log (ng-controller)"
     }
 }

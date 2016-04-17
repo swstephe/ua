@@ -1,5 +1,10 @@
 {
-  "index": {
-    "title": "Dive Log (HTML)"
-  }
+    "index": {
+        "scripts": [
+            "/jquery-2.1.4.js",
+            "../dives.js",
+            "app.js"
+        ],
+        "title": "Dive Log (HTML)"
+    }
 }

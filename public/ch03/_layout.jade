@@ -1,10 +1,9 @@
 doctype html
-html(ng-app='app')&attributes(app || {})
+html(ng-app=app||'app')
   head
     title Dive Sites
     link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
     link(rel='stylesheet' href='site.css')
-    block style
   body(ng-controller='adminCtrl')
     // Navigation header
     nav.navbar.navbar-default.navbar-fixed-topn(role='navigation')
@@ -18,9 +17,10 @@ html(ng-app='app')&attributes(app || {})
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        block navbar
-    block content
+        != partial(current.path[1]+"/_navbar")
+    != yield
     script(src='/jquery-2.1.4.js')
     script(src='/bootstrap/js/bootstrap.js')
     script(src='/angular/angular.js')
-    block script
+    for script in scripts||[]
+      script(type='text/javascript' src=script)
