@@ -1,13 +1,3 @@
-extends ../layout
-
-block style
-  link(rel='stylesheet' href='site.css')
-
-block content
-  h1 Drag dive log item
-  .row
-    #item.col-sm-12.logItem(ng-mousedown='mouseDown($event)') Dive Log Entry
-
-block script
-  script(type='text/javascript' src='events.module.js')
-  script(type='text/javascript' src='drag.controller.js')
+h1 Drag dive log item
+.row
+  #item.col-sm-12.logItem(ng-mousedown='mouseDown($event)') Dive Log Entry

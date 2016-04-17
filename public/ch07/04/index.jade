@@ -1,17 +1,7 @@
-extends ../layout
-
-block style
-  link(rel='stylesheet' href='site.css')
-
-block content
-  h2 Type in Your Dive Buddies
-  div(ng-repeat='n in [1,2]')
-    .row(ng-controller='buddyCtrl')
-      .col-sm-12(ng-init='index=n')
-        label Buddy # {{index}}:
-        input.form-control(ng-model='buddy',placeholder="Buddy #\{{index}}")
-        span.help-block {{getMessage()}}
-
-block script
-  script(type='text/javascript' src='multi.module.js')
-  script(type='text/javascript' src='buddy.controller.js')
+h2 Type in Your Dive Buddies
+div(ng-repeat='n in [1,2]')
+  .row(ng-controller='buddyCtrl')
+    .col-sm-12(ng-init='index=n')
+      label Buddy # {{index}}:
+      input.form-control(ng-model='buddy',placeholder="Buddy #\{{index}}")
+      span.help-block {{getMessage()}}

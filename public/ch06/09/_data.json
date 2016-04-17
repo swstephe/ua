@@ -1,7 +1,14 @@
 {
     "index": {
-        "app": {"ng-app": "diveLog"},
+        "app": "diveLog",
         "body": {"ng-controller": "diveLogCtrl"},
+        "has_style": true,
+        "scripts": [
+            "dives.js",
+            "options.js",
+            "divelog.module.js",
+            "divelog.controller.js"
+        ],
         "title": "Dive Log (ng-class)"
     }
 }

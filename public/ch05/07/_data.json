@@ -1,7 +1,13 @@
 {
     "index": {
-        "app": {"ng-app": "yw.planning"},
+        "app": "yw.planning",
         "body_attr": {"style": {"margin-top": "24px"}},
+        "scripts": [
+            "yw.planning.module.js",
+            "plannersrv.factory.js",
+            "messagesrv.factory.js",
+            "plan.controller.js"
+        ],
         "title": "Dive Planner"
     }
 }

@@ -1,41 +1,33 @@
-extends ../layout
-
-block content
-  h2 Dives
-  pre {{dives || json}}
-  .row
-    .col-sm-12
-      button.btn.btn-primary(ng-click='clone()') Clone collection
-      | &nbsp;
-      button.btn.btn-primary(ng-click='swapItems()')
-        | Swap dives[0] and dives[1]
-      | &nbsp;
-      button.btn.btn-primary(ng-click='changeItemProp()')
-        | Increment dives[0].depth
-      | &nbsp;
-      button.btn.btn-default(ng-click='reset()') Reset
-  .row
-    .col-sm-6
-      table.table
-        thead
-          tr
-            th Detection Mode
-            th Detected?
-        tbody
-          tr
-            td By reference
-            td
-              span.label(ng-class='detected(byRef)') {{byRef}}
-          tr
-            td By collection contents
-            td
-              span.label(ng-class='detected(byColl)') {{byColl}}
-          tr
-            td By value
-            td
-              span.label(ng-class='detected(byVal)') {{byVal}}
-
-block script
-  script(type='text/javascript' src='dives.js')
-  script(type='text/javascript' src='watcher.module.js')
-  script(type='text/javascript' src='dives.controller.js')
+h2 Dives
+pre {{dives || json}}
+.row
+  .col-sm-12
+    button.btn.btn-primary(ng-click='clone()') Clone collection
+    | &nbsp;
+    button.btn.btn-primary(ng-click='swapItems()')
+      | Swap dives[0] and dives[1]
+    | &nbsp;
+    button.btn.btn-primary(ng-click='changeItemProp()')
+      | Increment dives[0].depth
+    | &nbsp;
+    button.btn.btn-default(ng-click='reset()') Reset
+.row
+  .col-sm-6
+    table.table
+      thead
+        tr
+          th Detection Mode
+          th Detected?
+      tbody
+        tr
+          td By reference
+          td
+            span.label(ng-class='detected(byRef)') {{byRef}}
+        tr
+          td By collection contents
+          td
+            span.label(ng-class='detected(byColl)') {{byColl}}
+        tr
+          td By value
+          td
+            span.label(ng-class='detected(byVal)') {{byVal}}

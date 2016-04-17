@@ -1,8 +1,12 @@
 {
     "index": {
-        "app": {"ng-app": "digest"},
+        "app": "digest",
         "body": {"style": {"margin-top": "24px"}},
         "container": {"ng-controller": "doubler"},
+        "scripts": [
+            "digest.module.js",
+            "doubler.controller.js"
+        ],
         "title": "Digest Loop"
     }
 }

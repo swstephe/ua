@@ -1,6 +1,13 @@
 {
     "index": {
-        "app": {"ng-app": "scopes"},
+        "app": "scopes",
+        "scripts": [
+            "buddies.js",
+            "scopes.module.js",
+            "location.controller.js",
+            "site.controller.js",
+            "buddies.controller.js"
+        ],
         "title": "Scope Hierarchy"
     }
 }

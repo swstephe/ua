@@ -1,6 +1,6 @@
 {
     "index": {
-        "app": {"ng-app": true},
+        "app": true,
         "title": "Settings"
     }
 }

@@ -1,13 +1,3 @@
-extends ../layout
-
-block style
-  link(rel='stylesheet' href='site.css')
-
-block content
-  label Word to double:
-  input.form-control(ng-model='ctrl.word')
-  span.help-block {{ctrl.doubled()}}
-
-block script
-  script(type='text/javascript' src='digest.module.js')
-  script(type='text/javascript' src='doubler.controller.js')
+label Word to double:
+input.form-control(ng-model='ctrl.word')
+span.help-block {{ctrl.doubled()}}

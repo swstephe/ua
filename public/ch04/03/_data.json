@@ -1,0 +1,10 @@
+{
+    "index": {
+        "scripts": [
+            "dives.js",
+            "app.module.js",
+            "divelogapi.factory.js",
+            "divelog.controller.js"
+        ]
+    }
+}

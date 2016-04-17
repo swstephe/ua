@@ -1,11 +1,13 @@
 doctype html
-html()&attributes(app || {})
+html()&attributes(app?{'ng-app':app}:{})
   head
     title= title
     link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
-    block style
+    if has_style
+      link(rel='stylesheet' href='site.css')
   body()&attributes(body || {})
     .container-fluid()&attributes(container || {})
-      block content
+      != yield
     script(type='text/javascript' src='/angular/angular.js')
-    block script
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

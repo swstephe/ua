@@ -1,5 +1,12 @@
 {
     "index": {
+        "app": false,
+        "autoboot": true,
+        "scripts": [
+            "dives.js",
+            "divelog.module.js",
+            "divelog.controller.js"
+        ],
         "title": "Dive Log"
     }
 }

@@ -1,19 +1,10 @@
-extends ../layout
-
-block content
-  .container-fluid(ng-controller='planCtrl')
-    .row
-      .col-sm-12
-        .form-group
-          label(for='maxDepth') Planned Depth (feet):
-          input#maxDepth.form-control(type='number',ng-model='maxDepth')
-          p(
-            style={'margin-top':'12px'}
-            ng-class="{'text-danger': needAdvancedCert()}"
-          ) {{message()}}
-
-block script
-  script(type='text/javascript' src='yw.planning.module.js')
-  script(type='text/javascript' src='plannersrv.factory.js')
-  script(type='text/javascript' src='messagesrv.factory.js')
-  script(type='text/javascript' src='plan.controller.js')
+.container-fluid(ng-controller='planCtrl')
+  .row
+    .col-sm-12
+      .form-group
+        label(for='maxDepth') Planned Depth (feet):
+        input#maxDepth.form-control(type='number',ng-model='maxDepth')
+        p(
+          style={'margin-top':'12px'}
+          ng-class="{'text-danger': needAdvancedCert()}"
+        ) {{message()}}

@@ -1,6 +1,9 @@
 {
     "index": {
         "body": {"style": {"margin-top": "24px"}},
+        "scripts": [
+            "site.js"
+        ],
         "title": "Event Loop"
     }
 }

@@ -1,7 +1,14 @@
 {
     "index": {
-        "app": {"ng-app": "token"},
+        "app": "token",
         "container": {"ng-controller": "tokenGoalCtrl"},
+        "scripts": [
+            "token.module.js",
+            "initialgoal.constant.js",
+            "tokengoal.controller.js",
+            "tokencoll.controller.js",
+            "diver.controller.js"
+        ],
         "title": "Token Game"
     }
 }

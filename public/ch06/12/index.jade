@@ -1,12 +1,9 @@
-extends ../layout
-
-block content
-  .row
-    .col-sm-12
-      label(for='buddyEdit') Buddy Name:
-      input#buddyEdit.form-control(ng-list,ng-model='buddies')
-  .row
-    .col-sm-12
-      h3 Your dive buddies are:
-      div(ng-repeat='buddy in buddies')
-        strong {{buddy}}
+.row
+  .col-sm-12
+    label(for='buddyEdit') Buddy Name:
+    input#buddyEdit.form-control(ng-list ng-model='buddies')
+.row
+  .col-sm-12
+    h3 Your dive buddies are:
+    div(ng-repeat='buddy in buddies')
+      strong {{buddy}}

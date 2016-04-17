@@ -1,6 +1,5 @@
 {
     "index": {
-        "app": {"ng-app": true},
         "body_attr": {"style": {"margin-top": "24px"}},
         "title": "Dive Buddy"
     }

@@ -1,6 +1,15 @@
 {
     "index": {
-        "app": {"ng-app": "yw.main"},
+        "app": "yw.main",
+        "scripts": [
+            "yw.main.module.js",
+            "yw.divelog.module.js",
+            "yw.user.module.js",
+            "my.core.module.js",
+            "yw.charts.module.js",
+            "my.core.comm.module.js",
+            "my.core.ui.module.js"
+        ],
         "title": "Yw Modules"
     }
 }

@@ -1,0 +1,29 @@
+{
+    "index": {
+        "controller": "adminCtrl",
+        "has_style": true,
+        "no_angular": true,
+        "scripts": [
+            "/jquery-2.1.4.js",
+            "/bootstrap/js/bootstrap.js",
+            "/angular/angular.js",
+            "/angular-route/angular-route.js",
+            "core.module.js",
+            "current.factory.js",
+            "ywactivemenu.directive.js",
+            "ywmenuid.directive.js",
+            "app.module.js",
+            "admin.controller.js",
+            "main.controller.js",
+            "app.config.js",
+            "maintenance.module.js",
+            "sites.controller.js",
+            "types.controller.js",
+            "locationsapi.factory.js",
+            "locations.controller.js"
+        ]
+    },
+    "main": {
+        "layout": false
+    }
+}

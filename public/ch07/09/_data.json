@@ -1,7 +1,12 @@
 {
     "index": {
-        "app": {"ng-app": "watcher"},
+        "app": "watcher",
         "body": {"ng-controller": "divesCtrl"},
+        "scripts": [
+            "dives.js",
+            "watcher.module.js",
+            "dives.controller.js"
+        ],
         "title": "Change detection"
     }
 }

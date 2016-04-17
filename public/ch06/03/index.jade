@@ -1,26 +1,18 @@
-extends ../layout
-
-block content
-  h1 Interesting dives
-  .row
-    .col-sm-4
-      select.form-control(
-          ng-model='selectedLoc'
-          ng-options='loc for loc in locations'
-      )
-  .row(style={'margin-top':'24px'})
-    .col-sm-6
-      div(ng-switch='selectedLoc')
-        .alert.alert-info(ng-switch-when='Egypt')
-          | The most colorful flora and fauna, ever!
-        .alert.alert-warning(ng-switch-when='Cyprus')
-          | Beautiful terraform underwater...
-        .alert.alert-danger(ng-switch-when='Cuba')
-          | Very strong changes in the current during a single dive
-        .alert.alert-success(ng-switch-default)
-          | The best cave diving experience...
-
-block script
-  script(type='text/javascript' src='locations.js')
-  script(type='text/javascript' src='yw.interesting.module.js')
-  script(type='text/javascript' src='interesting.controller.js')
+h1 Interesting dives
+.row
+  .col-sm-4
+    select.form-control(
+        ng-model='selectedLoc'
+        ng-options='loc for loc in locations'
+    )
+.row(style={'margin-top':'24px'})
+  .col-sm-6
+    div(ng-switch='selectedLoc')
+      .alert.alert-info(ng-switch-when='Egypt')
+        | The most colorful flora and fauna, ever!
+      .alert.alert-warning(ng-switch-when='Cyprus')
+        | Beautiful terraform underwater...
+      .alert.alert-danger(ng-switch-when='Cuba')
+        | Very strong changes in the current during a single dive
+      .alert.alert-success(ng-switch-default)
+        | The best cave diving experience...

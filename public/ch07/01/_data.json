@@ -1,6 +1,10 @@
 {
     "index": {
-        "app": {"ng-app": "root"},
+        "app": "root",
+        "scripts": [
+            "root.module.js",
+            "simple.controller.js"
+        ],
         "title": "Root Scope"
     }
 }

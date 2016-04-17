@@ -1,7 +1,18 @@
 {
     "index": {
-        "app": {"ng-app": "yw.main"},
+        "app": "yw.main",
         "body_attr": {"ng-controller": "moduleCtrl"},
+        "scripts": [
+            "my.core.comm.module.js",
+            "my.core.ui.module.js",
+            "my.core.module.js",
+            "yw.charts.module.js",
+            "yw.divelog.module.js",
+            "yw.user.module.js",
+            "dummy1.module.js",
+            "yw.main.module.js",
+            "module.controller.js"
+        ],
         "title": "Yw Modules"
     }
 }

@@ -1,0 +1,19 @@
+doctype html
+html()&attributes(app===false?{}:{'ng-app':app||true})
+  head
+    title= title
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    if has_style
+      link(rel='stylesheet' href='site.css')
+  body()&attributes(body || {})
+    .container-fluid
+      != yield
+    if jquery
+      script(type='text/javascript' src='/jquery-2.1.4.js')
+    script(type='text/javascript' src='/angular/angular.js')
+    for script in scripts||[]
+      script(type='text/javascript' src=script)
+    if autoboot
+      script
+        :coffee-script
+          setTimeout (-> angular.bootstrap(document, ['diveLog'])), 3000

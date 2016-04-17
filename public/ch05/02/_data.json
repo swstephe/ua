@@ -1,6 +1,10 @@
 {
     "index": {
+        "app": false,
         "body_attr": {"style": {"margin-top":"24px"}},
+        "scripts": [
+            "app.js"
+        ],
         "title": "Dive Buddy"
     }
 }

@@ -1,7 +1,11 @@
 {
     "index": {
-        "app": {"ng-app": "events"},
+        "app": "events",
         "jquery": true,
+        "scripts": [
+            "events.module.js",
+            "ywdraggable.directive.js"
+        ],
         "title": "Dive Buddy"
     }
 }

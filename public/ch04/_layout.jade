@@ -1,0 +1,13 @@
+doctype html
+html(ng-app='app')
+  head
+    title= title || "Dive Log (ng-controller)"
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    if has_style
+      link(rel='stylesheet' href='site.css')
+  body(ng-controller=controller||'diveLogCtrl')
+    != yield
+    if no_angular === undefined
+      script(type='text/javascript' src='/angular/angular.js')
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

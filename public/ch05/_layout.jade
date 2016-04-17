@@ -1,9 +1,10 @@
 doctype html
-html()&attributes(app || {})
+html()&attributes(app===false?{}:{'ng-app':app||true})
   head
     title= title
     link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
   body()&attributes(body_attr || {})
-    block content
+    != yield
     script(type='text/javascript' src='/angular/angular.js')
-    block script
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

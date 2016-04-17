@@ -1,7 +1,12 @@
 {
     "index": {
-        "app": {"ng-app": "yw.interesting"},
+        "app": "yw.interesting",
         "body": {"ng-controller": "interestingCtrl"},
+        "scripts": [
+            "locations.js",
+            "yw.interesting.module.js",
+            "interesting.controller.js"
+        ],
         "title": "Interesting Dives"
     }
 }

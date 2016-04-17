@@ -1,22 +1,9 @@
-extends ../layout
-
-block style
-  link(rel='stylesheet' href='site.css')
-
-block content
-  h1(ng-init='name="Younderwater"') Application: {{name}}
-  div(ng-controller='locationCtrl')
-    h3 Location: {{name}}
-    div(ng-controller='siteCtrl')
-      h4 Dive Site: {{name}}
-      div(ng-controller='buddiesCtrl')
-        h5 Buddies:
-        h5(ng-repeat='name in buddies')
-          strong {{$index+1}}. {{name}}
-
-block script
-  script(type='text/javascript' src='buddies.js')
-  script(type='text/javascript' src='scopes.module.js')
-  script(type='text/javascript' src='location.controller.js')
-  script(type='text/javascript' src='site.controller.js')
-  script(type='text/javascript' src='buddies.controller.js')
+h1(ng-init='name="Younderwater"') Application: {{name}}
+div(ng-controller='locationCtrl')
+  h3 Location: {{name}}
+  div(ng-controller='siteCtrl')
+    h4 Dive Site: {{name}}
+    div(ng-controller='buddiesCtrl')
+      h5 Buddies:
+      h5(ng-repeat='name in buddies')
+        strong {{$index+1}}. {{name}}

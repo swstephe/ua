@@ -1,18 +1,15 @@
-extends ../layout
-
-block content
-  .row
-    .col-sm-12
-      label(for='buddyEdit') Buddy Name:
-      input#buddyEdit.form-control(ng-list,ng-model='buddies')
-  .row
-    .col-sm-12
-      h3
-        ng-pluralize(
-          count='buddies.length'
-          when="{0: 'You have no dive buddy.'," +
-            "1: 'You have a single dive buddy:'," +
-            "'other': 'You have {{buddies.length}} buddies:'}"
-        )
-      div(ng-repeat='buddy in buddies')
-        strong {{buddy}}
+.row
+  .col-sm-12
+    label(for='buddyEdit') Buddy Name:
+    input#buddyEdit.form-control(ng-list,ng-model='buddies')
+.row
+  .col-sm-12
+    h3
+      ng-pluralize(
+        count='buddies.length'
+        when="{0: 'You have no dive buddy.'," +
+          "1: 'You have a single dive buddy:'," +
+          "'other': 'You have {{buddies.length}} buddies:'}"
+      )
+    div(ng-repeat='buddy in buddies')
+    strong {{buddy}}

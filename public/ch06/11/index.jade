@@ -1,12 +1,9 @@
-extends ../layout
-
-block content
-  h1 My Settings
-  .row
-    .col-sm-12
-      | Save my workspace&#32;
-      input(type='checkbox',ng-model='saveWks')
-  .row
-    .col-sm-12
-      | The "Save my workspace" setting:&#32;
-      input(type='checkbox',ng-checked='saveWks')
+h1 My Settings
+.row
+  .col-sm-12
+    | Save my workspace&#32;
+    input(type='checkbox',ng-model='saveWks')
+.row
+  .col-sm-12
+    | The "Save my workspace" setting:&#32;
+    input(type='checkbox',ng-checked='saveWks')

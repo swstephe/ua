@@ -1,6 +1,11 @@
 {
     "index": {
-        "app": {"ng-app": "multi"},
+        "app": "multi",
+        "has_style": true,
+        "scripts": [
+            "multi.module.js",
+            "buddy.controller.js"
+        ],
         "title": "Multiple Scopes"
     }
 }
