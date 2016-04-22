@@ -1,12 +1,10 @@
-extends ../layout
-block content
-  label.control-label Time value
-  input.form-control(
-      type='time'
-      autofocus
-      ng-model='timeValue'
-      ng-model-options='zoneValue'
-  )
-  hr
-  p The zone value in the model is: <strong>{{zoneValue}}</strong>
-  p The time value in the model is: <strong>{{timeValue}}</strong>
+label.control-label Time value
+input.form-control(
+    type='time'
+    autofocus
+    ng-model='timeValue'
+    ng-model-options='zoneValue'
+)
+hr
+p The zone value in the model is: <strong>{{zoneValue}}</strong>
+p The time value in the model is: <strong>{{timeValue}}</strong>

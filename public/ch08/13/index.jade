@@ -1,35 +1,33 @@
-extends ../layout
-block content
-  form(name='simple')
-    label.control-label Type in a value
-    input.form-control(
-      name='myVal'
-      ng-model='myValue'
-      ng-change='changeCount=changeCount+1'
-      ng-required='true'
-      ng-minlength=3
-      ng-maxlength=9
-      ng-trim='true'
-      ng-model-option='{allowInvalid:true}'
-    )
-  hr
-  table.table.table-bordered
-    tbody
-      tr
-        td Value:
-        td [{{myValue}}]
-      tr
-        td Changes:
-        td {{changeCount}}
-      tr
-        td Is valid?
-        td {{simple.myVal.$valid}}
-      tr
-        td Issue with required?
-        td {{simple.myVal.$error.required}}
-      tr
-        td Issue with minlength?
-        td {{simple.myVal.$error.minlength}}
-      tr
-        td Issue with maxlength?
-        td {{simple.myVal.$error.maxlength}}
+form(name='simple')
+  label.control-label Type in a value
+  input.form-control(
+    name='myVal'
+    ng-model='myValue'
+    ng-change='changeCount=changeCount+1'
+    ng-required='true'
+    ng-minlength=3
+    ng-maxlength=9
+    ng-trim='true'
+    ng-model-option='{allowInvalid:true}'
+  )
+hr
+table.table.table-bordered
+  tbody
+    tr
+      td Value:
+      td [{{myValue}}]
+    tr
+      td Changes:
+      td {{changeCount}}
+    tr
+      td Is valid?
+      td {{simple.myVal.$valid}}
+    tr
+      td Issue with required?
+      td {{simple.myVal.$error.required}}
+    tr
+      td Issue with minlength?
+      td {{simple.myVal.$error.minlength}}
+    tr
+      td Issue with maxlength?
+      td {{simple.myVal.$error.maxlength}}

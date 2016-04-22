@@ -1,6 +1,11 @@
 {
     "index": {
         "app": "validation",
+        "has_style": true,
+        "scripts": [
+            "validation.module.js",
+            "mynumber.directive.js"
+        ],
         "title": "Overriding number"
     }
 }

@@ -1,16 +1,10 @@
-extends ../layout
-block content
-  h1 My Latest Dives
-  .row
-    .col-sm-12
-      h3 Average dive time: {{avgTime() | number: 2}} minute
-      h3 Average depth: {{avgDepth() | number}} feet
-  .row
-    .col-sm-4(ng-repeat='dive in dives')
-      h3 {{dive.site}}
-      h4 {{dive.location}}
-      h2 {{dive.depth}} feet | {{dive.time}} min
-append script
-  script(type='text/javascript' src="../dives.js")
-  script(type='text/javascript' src='divelog.module.js')
-  script(type='text/javascript' src='divelog.controller.js')
+h1 My Latest Dives
+.row
+  .col-sm-12
+    h3 Average dive time: {{avgTime() | number: 2}} minute
+    h3 Average depth: {{avgDepth() | number}} feet
+.row
+  .col-sm-4(ng-repeat='dive in dives')
+    h3 {{dive.site}}
+    h4 {{dive.location}}
+    h2 {{dive.depth}} feet | {{dive.time}} min

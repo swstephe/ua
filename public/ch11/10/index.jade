@@ -1,27 +1,12 @@
-doctype html
-html(ng-app='diveLog')
-  head
-    title Dive Log with Templates
-    link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    link(rel='stylesheet',href='site.css')
-  body
-    .container-fluid(ng-controller='diveLogCtrl')
-      h1 My Latest Dives
-      .row(style={'margin-bottom': '12px'})
-        .col-sm-4
-          button.btn.btn-default(ng-click='style=1') Colorful
-          button.btn.btn-default(ng-click='style=2') Grayscale
-        .col-sm-4 {{style}}
-        .col-sm-4.col-sm-offset-8
-          input.form-control.input-lg(
-            placeholder="Search"
-            ng-model='searchKey'
-          )
-      .row
-        .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
-          dive-log-card
-    script(src='/angular/angular.js')
-    script(src='dives.js')
-    script(src='divelog.module.js')
-    script(src='divelog.controller.js')
-    script(src='divelogcard.directive.js')
+.container-fluid(ng-controller='diveLogCtrl')
+  h1 My Latest Dives
+  .row(style={'margin-bottom': '12px'})
+    .col-sm-4
+      button.btn.btn-default(ng-click='style=1') Colorful
+      button.btn.btn-default(ng-click='style=2') Grayscale
+    .col-sm-4 {{style}}
+    .col-sm-4.col-sm-offset-8
+      input.form-control.input-lg(placeholder="Search" ng-model='searchKey')
+  .row
+    .col-sm-4(ng-repeat='dive in dives | filter:searchKey')
+      dive-log-card

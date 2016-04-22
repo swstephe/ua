@@ -4,8 +4,8 @@ angular.module 'services'
   'isDeepFunc'
   ($scope, isDeepFunc) ->
     $scope.cert = ->
-      if isDeepFunc($scope.maxDepth)
-        "Advacned Open Water"
+      if isDeepFunc $scope.maxDepth
+        "Advanced Open Water"
       else
         "Open Water"
 ]

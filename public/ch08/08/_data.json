@@ -2,6 +2,10 @@
     "index": {
         "app": "dropdown",
         "cont_attr": {"ng-controller": "sitesCtrl"},
+        "scripts": [
+            "dropdown.module.js",
+            "sites.controller.js"
+        ],
         "title": "Dropdown list"
     }
 }

@@ -1,0 +1,13 @@
+{
+    "index": {
+        "app": "maintenance",
+        "controller": "adminCtrl",
+        "has_jqbs": true,
+        "has_style": true,
+        "scripts": [
+            "/angular-route/angular-route.js",
+            "maintenance.js"
+        ],
+        "title": "Dive Sites"
+    }
+}

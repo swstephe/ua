@@ -1,5 +1,13 @@
 {
     "index": {
-        "cont_attr": {"ng-controller": "diveLogCtrl"}
+        "cont_attr": {"ng-controller": "diveLogCtrl"},
+        "scripts": [
+            "../dives.js",
+            "divelog.module.js",
+            "divedata.filter.js",
+            "startchars.filter.js",
+            "startwith.filter.js",
+            "divelog.controller.js"
+        ]
     }
 }

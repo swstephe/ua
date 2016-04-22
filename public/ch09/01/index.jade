@@ -1,8 +1,3 @@
-extends ../layout
-block content
-  h2 The number of your dives: {{diveNum}}
-  h2 Hours spent underwater: {{hours}}
-  h2 Average dive time: {{avgTime|number:2}} minutes
-append script
-  script(type='text/javascript' src='services.module.js')
-  script(type='text/javascript' src='stats.controller.js')
+h2 The number of your dives: {{diveNum}}
+h2 Hours spent underwater: {{hours}}
+h2 Average dive time: {{avgTime|number:2}} minutes

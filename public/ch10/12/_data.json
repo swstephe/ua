@@ -1,0 +1,9 @@
+{
+    "index": {
+        "scripts": [
+            "../dives.js",
+            "divelog.module.js",
+            "divelog.controller.js"
+        ]
+    }
+}

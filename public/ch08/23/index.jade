@@ -1,19 +1,12 @@
-extends ../layout
-block style
-  link(rel='stylesheet' href='site.css')
-block content
-  form(name='simple',novalidate)
-    .form-group
-      label.control-label A number dividable with 5
-      div(ng-init='useThis=5')
-      input.form-control(
-          autofocus
-          type='number'
-          name='myNumber'
-          ng-model='myNumber'
-          dividable='useThis'
-          required
-      )
-append script
-  script(type='text/javascript' src='validation.module.js')
-  script(type='text/javascript' src='dividable.directive.js')
+form(name='simple' novalidate)
+  .form-group
+    label.control-label A number dividable with 5
+    div(ng-init='useThis=5')
+    input.form-control(
+        autofocus
+        type='number'
+        name='myNumber'
+        ng-model='myNumber'
+        dividable='useThis'
+        required
+    )

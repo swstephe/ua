@@ -1,6 +1,13 @@
 {
     "index": {
         "cont_attr": {"ng-controller": "depthCtrl"},
+        "scripts": [
+            "services.module.js",
+            "depth.provider.js",
+            "depth.config.js",
+            "services.config.js",
+            "depth.controller.js"
+        ],
         "title": "Text input"
     }
 }

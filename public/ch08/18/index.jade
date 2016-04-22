@@ -1,24 +1,22 @@
-extends ../layout
-block content
-  form(name='simple',novalidate)
-    .form-group
-      label.control-label User name
-      input.form-control(
-          autofocus
-          name='userName'
-          ng-model='userName'
-          required
-      )
-    .form-group
-      label.control-label Email
-      input.form-control(
-          name='email'
-          ng-model='email'
-          type='email'
-          required
-      )
-  hr
-  h4 "Required" errors:
-  p(ng-repeat='issue in simple.$error.required') {{issue.$name}}
-  h4 "Email" errors:
-  p(ng-repeat='issue in simple.$error.email') {{issue.$name}}
+form(name='simple',novalidate)
+  .form-group
+    label.control-label User name
+    input.form-control(
+        autofocus
+        name='userName'
+        ng-model='userName'
+        required
+    )
+  .form-group
+    label.control-label Email
+    input.form-control(
+        name='email'
+        ng-model='email'
+        type='email'
+        required
+    )
+hr
+h4 "Required" errors:
+p(ng-repeat='issue in simple.$error.required') {{issue.$name}}
+h4 "Email" errors:
+p(ng-repeat='issue in simple.$error.email') {{issue.$name}}

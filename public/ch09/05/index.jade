@@ -1,10 +1,2 @@
-extends ../layout
-block content
-  h2 This is Younderwater v{{getVersion()}}
-  button.btn.btn-primary(ng-click='incMinor()') Increment minor number
-append script
-  script(type='text/javascript' src='services.module.js')
-  script(type='text/javascript' src='version.value.js')
-  script(type='text/javascript' src='version.controller.js')
-  script(type='text/javascript' src='version1.config.js')
-  script(type='text/javascript' src='version2.config.js')
+h2 This is Younderwater v{{getVersion()}}
+button.btn.btn-primary(ng-click='incMinor()') Increment minor number

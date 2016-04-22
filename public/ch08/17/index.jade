@@ -1,20 +1,18 @@
-extends ../layout
-block content
-  form(name='simple',ng-submit="ctrl='Form'")
-    .form-group
-      label.control-label User name
-      input.form-control(
-          autofocus
-          name='userName'
-          ng-model='userName'
-          ng-model-options="{updateOn:'blur'}"
-          required
-      )
-    input.btn.btn-primary(
-        ng-click="answer=userName;ctrl='Save'"
-        type='submit'
-        value="Save"
+form(name='simple' ng-submit="ctrl='Form'")
+  .form-group
+    label.control-label User name
+    input.form-control(
+        autofocus
+        name='userName'
+        ng-model='userName'
+        ng-model-options="{updateOn:'blur'}"
+        required
     )
-  hr
-  p The submitted user name is: <strong>{{answer}}</strong>
-  p Submitted by: <strong>{{ctrl}}</strong>
+  input.btn.btn-primary(
+      ng-click="answer=userName;ctrl='Save'"
+      type='submit'
+      value="Save"
+  )
+hr
+p The submitted user name is: <strong>{{answer}}</strong>
+p Submitted by: <strong>{{ctrl}}</strong>

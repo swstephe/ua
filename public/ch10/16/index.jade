@@ -1,14 +1,6 @@
-extends ../layout
-block content
-  h1 My Latest Dives
-  .row
-    .col-sm-4(ng-repeat="dive in dives | siteWords: 3")
-      h3 {{dive.site}}
-      h3 {{dive.location}}
-      h3 {{dive | diveData : ' :: '}}
-append script
-  script(type='text/javascript' src='../dives.js')
-  script(type='text/javascript' src='divelog.module.js')
-  script(type='text/javascript' src='divedata.filter.js')
-  script(type='text/javascript' src='sitewords.filter.js')
-  script(type='text/javascript' src='divelog.controller.js')
+h1 My Latest Dives
+.row
+  .col-sm-4(ng-repeat="dive in dives | siteWords: 3")
+    h3 {{dive.site}}
+    h3 {{dive.location}}
+    h3 {{dive | diveData : ' :: '}}

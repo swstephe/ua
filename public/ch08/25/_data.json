@@ -2,6 +2,12 @@
     "index": {
         "app": "messages",
         "body_attr": {"ng-controller": "MainCtrl"},
+        "has_style": true,
+        "scripts": [
+            "/angular-messages/angular-messages.js",
+            "messages.module.js",
+            "main.controller.js"
+        ],
         "title": "Using ng-messages"
     }
 }

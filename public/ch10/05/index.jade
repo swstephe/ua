@@ -1,17 +1,10 @@
-extends ../layout
-block content
-  h1 My Latest Dives
-  .row(ng-controller='diveLogCtrl')
-    .col-sm-4(ng-repeat='dive in dives')
-      h3 {{dive.site}}
-      h4 {{dive.location}}
-      h2 {{dive.depth}} feet | {{dive.time}} min
-      h4
-        | Extra paid:&#32;
-        span(ng-show='$index % 2 == 0') {{dive.extraPaid | currency}}
-        span(ng-show='$index % 2 == 1')
-          | {{dive.extraPaid | currency: 'US$' : 2}}
-append script
-  script(type='text/javascript' src="../dives.js")
-  script(type='text/javascript' src='divelog.module.js')
-  script(type='text/javascript' src='divelog.controller.js')
+h1 My Latest Dives
+.row(ng-controller='diveLogCtrl')
+  .col-sm-4(ng-repeat='dive in dives')
+    h3 {{dive.site}}
+    h4 {{dive.location}}
+    h2 {{dive.depth}} feet | {{dive.time}} min
+    h4
+      | Extra paid:&#32;
+      span(ng-show='$index % 2 == 0') {{dive.extraPaid | currency}}
+      span(ng-show='$index % 2 == 1') {{dive.extraPaid | currency:'US$':2}}

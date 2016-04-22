@@ -1,13 +1,8 @@
-extends ../layout
-block content
-  select.form-control(
-      ng-model='selected'
-      ng-options="site.name group by site.loc for site in sites"
-  )
-  hr
-  button.btn.btn-primary(ng-click="selected='#4'") Select item #4
-  hr
-  p Selected value: {{selected}}
-append script
-  script(type='text/javascript' src='dropdown.module.js')
-  script(type='text/javascript' src='sites.controller.js')
+select.form-control(
+    ng-model='selected'
+    ng-options="site.name group by site.loc for site in sites"
+)
+hr
+button.btn.btn-primary(ng-click="selected='#4'") Select item #4
+hr
+p Selected value: {{selected}}

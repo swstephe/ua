@@ -1,0 +1,19 @@
+{
+    "index": {
+        "app": "diveLog",
+        "fake": {
+            "site": "Fake site",
+            "location": "Fake location",
+            "depth": 0,
+            "time": 0
+        },
+        "has_style": true,
+        "scripts": [
+            "dives.js",
+            "divelog.module.js",
+            "divelog.controller.js",
+            "divelogcard.directive.js"
+        ],
+        "title": "Dive Log with Templates"
+    }
+}

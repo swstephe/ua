@@ -1,25 +1,16 @@
-extends ../layout
-block content
-  h1 My Latest Dives
-  .row
-    .col-sm-12
-      ul.nav.nav-pills
-        li(ng-class="{active: activeLetter==''}")
-          a(href='',ng-click="setFilter('')") All
-        li(
-          ng-repeat='letter in dives | startChars'
-          ng-class='{active: activeLetter==letter}'
-        )
-          a(href='',ng-click='setFilter(letter)') {{letter}}
-  .row
-    .col-sm-4(ng-repeat="dive in dives | startWith :activeLetter")
-      h3 {{dive.site}}
-      h3 {{dive.location}}
-      h3 {{dive | diveData : ' :: '}}
-append script
-  script(type='text/javascript' src='../dives.js')
-  script(type='text/javascript' src='divelog.module.js')
-  script(type='text/javascript' src='divedata.filter.js')
-  script(type='text/javascript' src='startchars.filter.js')
-  script(type='text/javascript' src='startwith.filter.js')
-  script(type='text/javascript' src='divelog.controller.js')
+h1 My Latest Dives
+.row
+  .col-sm-12
+    ul.nav.nav-pills
+      li(ng-class="{active: activeLetter==''}")
+        a(href='' ng-click="setFilter('')") All
+      li(
+        ng-repeat='letter in dives | startChars'
+        ng-class='{active: activeLetter==letter}'
+      )
+        a(href='' ng-click='setFilter(letter)') {{letter}}
+.row
+  .col-sm-4(ng-repeat="dive in dives | startWith :activeLetter")
+    h3 {{dive.site}}
+    h3 {{dive.location}}
+    h3 {{dive | diveData : ' :: '}}

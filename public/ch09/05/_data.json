@@ -1,6 +1,13 @@
 {
     "index": {
         "body_attr": {"ng-controller": "versionCtrl"},
+        "scripts": [
+            "services.module.js",
+            "version.value.js",
+            "version.controller.js",
+            "version1.config.js",
+            "version2.config.js"
+        ],
         "title": "Value Service"
     }
 }

@@ -1,0 +1,15 @@
+{
+    "index": {
+        "app": "diveLog",
+        "has_style": true,
+        "template": "logentry.html",
+        "template_id": "cardTmpl",
+        "scripts": [
+            "dives.js",
+            "divelog.module.js",
+            "divelog.controller.js",
+            "divelogcard.directive.js"
+        ],
+        "title": "Dive Log with Templates"
+    }
+}

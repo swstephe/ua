@@ -1,6 +1,10 @@
 {
     "index": {
         "body_attr": {"ng-controller": "statsCtrl"},
+        "scripts": [
+            "services.module.js",
+            "stats.controller.js"
+        ],
         "title": "Constant Service"
     }
 }

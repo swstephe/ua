@@ -1,0 +1,13 @@
+doctype html
+html(ng-app=app||true)
+  head
+    title= title
+    link(rel='stylesheet' href='/bootstrap/css/bootstrap.css')
+    if has_style
+      link(rel='stylesheet' href='site.css')
+  body(style={'margin-top': '12px'})&attributes(body_attr || {})
+    .container()&attributes(cont_attr || {})
+      != yield
+    script(type='text/javascript' src='/angular/angular.js')
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

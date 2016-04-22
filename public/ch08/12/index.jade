@@ -1,21 +1,19 @@
-extends ../layout
-block content
-  form(name='regform')
-    .form-group
-      label.control-label User name
-      input.form-control(
-          autofocus
-          name='userName'
-          ng-model='userName'
-          ng-model-options="{updateOn:'default',debounce:1000}"
-      )
-    .form-group
-      label.control-label Email
-      input.form-control(
-          type='email'
-          name='email'
-          ng-model='email'
-      )
-  hr
-  p User name: {{userName}}
-  p Email: {{email}}
+form(name='regform')
+  .form-group
+    label.control-label User name
+    input.form-control(
+        autofocus
+        name='userName'
+        ng-model='userName'
+        ng-model-options="{updateOn:'default',debounce:1000}"
+    )
+  .form-group
+    label.control-label Email
+    input.form-control(
+        type='email'
+        name='email'
+        ng-model='email'
+    )
+hr
+p User name: {{userName}}
+p Email: {{email}}

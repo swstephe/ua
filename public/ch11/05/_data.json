@@ -1,0 +1,12 @@
+{
+    "index": {
+        "app": "diveLog",
+        "has_style": true,
+        "scripts": [
+            "dives.js",
+            "divelog.module.js",
+            "divelog.controller.js"
+        ],
+        "title": "Dive Log with Templates"
+    }
+}

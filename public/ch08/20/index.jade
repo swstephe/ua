@@ -1,26 +1,22 @@
-extends ../layout
-block style
-  link(rel='stylesheet' href='site.css')
-block content
-  form(name='simple',novalidate)
-    .form-group
-      label.control-label User name
-      input.form-control(
-          autofocus
-          name='userName'
-          ng-model='userName'
-          required
-      )
-    .form-group
-      label.control-label Email
-      input.form-control(
-          name='email'
-          ng-model='email'
-          type='email'
-          required
-      )
-    input.btn.btn-primary(
-        type='submit'
-        ng-disabled='simple.$invalid'
-        value="Save"
+form(name='simple' novalidate)
+  .form-group
+    label.control-label User name
+    input.form-control(
+        autofocus
+        name='userName'
+        ng-model='userName'
+        required
     )
+  .form-group
+    label.control-label Email
+    input.form-control(
+        name='email'
+        ng-model='email'
+        type='email'
+        required
+    )
+  input.btn.btn-primary(
+      type='submit'
+      ng-disabled='simple.$invalid'
+      value="Save"
+  )

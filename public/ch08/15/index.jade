@@ -1,13 +1,11 @@
-extends ../layout
-block content
-  form(name='simple',ng-submit='answer=userName')
-    .form-group
-      label.control-label User name
-      input.form-control(
-          autofocus
-          name='userName'
-          ng-model='userName'
-          required
-      )
-  hr
-  p The submitted user name is: <strong>{{answer}}</strong>
+form(name='simple',ng-submit='answer=userName')
+  .form-group
+    label.control-label User name
+    input.form-control(
+        autofocus
+        name='userName'
+        ng-model='userName'
+        required
+    )
+hr
+p The submitted user name is: <strong>{{answer}}</strong>

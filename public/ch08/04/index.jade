@@ -1,23 +1,21 @@
-extends ../layout
-block content
-  form(name='diveProps')
-    .checkbox
-      label
-        input(
-            type='checkbox'
-            name='wreckDive'
-            ng-model='wreckDive'
-        )
-        | &#32;Wreck dive?
-        span ({{wreckDive}})
-    .checkbox
-      label
-        input(
-            type='checkbox'
-            name='nightDive'
-            ng-true-value="'night'"
-            ng-false-value="'day'"
-            ng-model='nightDive'
-        )
-        | &#32;Night dive?
-        span ({{nightDive}})
+form(name='diveProps')
+  .checkbox
+    label
+      input(
+          type='checkbox'
+          name='wreckDive'
+          ng-model='wreckDive'
+      )
+      | &#32;Wreck dive?
+      span ({{wreckDive}})
+  .checkbox
+    label
+      input(
+          type='checkbox'
+          name='nightDive'
+          ng-true-value="'night'"
+          ng-false-value="'day'"
+          ng-model='nightDive'
+      )
+      | &#32;Night dive?
+      span ({{nightDive}})

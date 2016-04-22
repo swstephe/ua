@@ -1,10 +1,8 @@
-extends ../layout
-block content
-  select
-    option(
-        ng-repeat='value in [1,2,3]'
-        ng-value='value'
-        ng-selected='value==selected'
-    ) Value # {{value}}
-  hr
-  p Selected value: {{selected}}
+select
+  option(
+      ng-repeat='value in [1,2,3]'
+      ng-value='value'
+      ng-selected='value==selected'
+  ) Value # {{value}}
+hr
+p Selected value: {{selected}}

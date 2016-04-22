@@ -1,6 +1,10 @@
 {
     "index": {
         "body_attr": {"ng-controller": "versionCtrl"},
+        "scripts": [
+            "services.module.js",
+            "version.controller.js"
+        ],
         "title": "Constant Service"
     }
 }

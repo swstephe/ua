@@ -1,39 +1,37 @@
-extends ../layout
-block content
-  form(name='regform')
-    .form-group
-      label.control-label Type in a value
-      input.form-control(
-        name='userName'
-        ng-model='userName'
-        required
-      )
-    .form-group
-      label.control-label Email
-      input.form-control(
-        type='email'
-        name='email'
-        ng-model='email'
-        required
-      )
-  hr
-  table.table.table-bordered
-    tbody
-      tr
-        td Is user name dirty?
-        td {{regform.userName.$dirty}}
-      tr
-        td Is email dirty?
-        td {{regform.email.$dirty}}
-      tr
-        td Is user name valid?
-        td {{regform.userName.$valid}}
-      tr
-        td Is email valid?
-        td {{regform.email.$valid}}
-      tr
-        td Is the form dirty?
-        td {{regform.$dirty}}
-      tr
-        td Is the form valid?
-        td {{regform.$valid}}
+form(name='regform')
+  .form-group
+    label.control-label Type in a value
+    input.form-control(
+      name='userName'
+      ng-model='userName'
+      required
+    )
+  .form-group
+    label.control-label Email
+    input.form-control(
+      type='email'
+      name='email'
+      ng-model='email'
+      required
+    )
+hr
+table.table.table-bordered
+  tbody
+    tr
+      td Is user name dirty?
+      td {{regform.userName.$dirty}}
+    tr
+      td Is email dirty?
+      td {{regform.email.$dirty}}
+    tr
+      td Is user name valid?
+      td {{regform.userName.$valid}}
+    tr
+      td Is email valid?
+      td {{regform.email.$valid}}
+    tr
+      td Is the form dirty?
+      td {{regform.$dirty}}
+    tr
+      td Is the form valid?
+      td {{regform.$valid}}

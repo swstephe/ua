@@ -1,6 +1,9 @@
 {
     "index": {
         "app": true,
+        "scripts": [
+            "/angular/angular-locale_hu-hu.js"
+        ],
         "title": "Hungarian locale Log"
     }
 }

@@ -1,17 +1,15 @@
-extends ../layout
-block content
-  label.control-label Type in a value
-  input.form-control(
-    ng-model='myValue'
-    ng-change='changeCount=changeCount+1'
-    ng-trim='true'
-  )
-  hr
-  table.table.table-bordered
-    tbody
-      tr
-        td Value:
-        td [{{myValue}}]
-      tr
-        td Changes:
-        td {{changeCount}}
+label.control-label Type in a value
+input.form-control(
+  ng-model='myValue'
+  ng-change='changeCount=changeCount+1'
+  ng-trim='true'
+)
+hr
+table.table.table-bordered
+  tbody
+    tr
+      td Value:
+      td [{{myValue}}]
+    tr
+      td Changes:
+      td {{changeCount}}

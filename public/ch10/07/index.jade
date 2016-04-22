@@ -1,19 +1,11 @@
-extends ../layout
-block content
-  .row
-    .col-sm-12
-      h3
-        | Floating point number:&#32;
-        strong {{1234.567 | number}}
-      h3
-        | Hungarian currency format:&#32;
-        strong {{2996.48 | currency}}
-      h3
-        | Hungarian date format:&#32;
-        strong {{'2015-02-09T08:34:00.000Z' | date: 'medium'}}
-append script
-  //script(src='/angular/angular-locale_ar-ae.js')
-  script(src='/angular/angular-locale_hu-hu.js')
-  //script(src='/angular/angular-locale_id-id.js')
-  //script(src='/angular/angular-locale_ja-jp.js')
-  //script(src='/angular/angular-locale_zh-cn.js')
+.row
+  .col-sm-12
+    h3
+      | Floating point number:&#32;
+      strong {{1234.567 | number}}
+    h3
+      | Hungarian currency format:&#32;
+      strong {{2996.48 | currency}}
+    h3
+      | Hungarian date format:&#32;
+      strong {{'2015-02-09T08:34:00.000Z' | date: 'medium'}}
