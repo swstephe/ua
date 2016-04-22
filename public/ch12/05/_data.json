@@ -2,6 +2,10 @@
     "index": {
         "app": "fish",
         "body_attr": {"style": {"margin-top": "12px"}},
+        "scripts": [
+            "fish.module.js",
+            "othername.directive.js"
+        ],
         "title": "Isolated Scope"
     }
 }

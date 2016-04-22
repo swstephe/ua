@@ -1,27 +1,21 @@
-extends ../layout
-block style
-  link(rel='stylesheet' href='site.css')
-block template
-  script#otherName(type='text/ng-template')
-    h3 {{language}} name:
+script#otherName(type='text/ng-template')
+  h3 {{language}} name:
+  h2 {{fishName}}
+  button.btn.btn-primary(ng-click='reveal()') Reveal
+
+.row(ng-init='fishName="Lionfish"')
+  .col-sm-3
+    img.img-responsive(src='../Lionfish.jpg')
+  .col-sm-9
+    h3 English name:
     h2 {{fishName}}
-    button.btn.btn-primary(ng-click='reveal()') Reveal
-block content
-  .row(ng-init='fishName="Lionfish"')
-    .col-sm-3
-      img.img-responsive(src='../Lionfish.jpg')
-    .col-sm-9
-      h3 English name:
-      h2 {{fishName}}
-      button.btn.btn-primary(ng-click='fishName="Big lionfish"') Modify
-  .row
-    .col-sm-12
-      section(
-        other-name
-        language="Latin"
-        orig-name="[English: {{fishName}}]"
-        real-name="Pterolis volitans"
-      )
-append script
-  script(type='text/javascript' src='fish.module.js')
-  script(type='text/javascript' src='othername.directive.js')
+    button.btn.btn-primary(ng-click='fishName="Big lionfish"') Modify
+
+.row
+  .col-sm-12
+    section(
+      other-name
+      language="Latin"
+      orig-name="[English: {{fishName}}]"
+      real-name="Pterolis volitans"
+    )

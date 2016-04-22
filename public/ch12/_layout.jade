@@ -3,10 +3,11 @@ html(ng-app=app)
   head
     title= title
     link(rel='stylesheet',href='/bootstrap/css/bootstrap.css')
-    block style
-    block template
+    if has_style
+      link(rel='stylesheet' href='site.css')
   body()&attributes(body_attr || {})
     .container-fluid()&attributes(cont_attr || {})
-      block content
-    block script
-      script(src='/angular/angular.js')
+      != yield
+    script(src='/angular/angular.js')
+    for script in scripts||[]
+      script(type='text/javascript' src=script)

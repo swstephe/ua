@@ -1,14 +1,9 @@
-extends ../layout
-block content
-  h2 Select a value (click the button)
-  div(
-    my-pickup-list
-    ng-init='selected="Alain"'
-    ng-model='selected'
-    values="Joe;Cecile;Alain"
-  )
-  h3 The selected value is {{selected}}
-  button.btn.btn-primary(ng-click='selected="Jack"') Change to Jack
-append script
-  script(type='text/javascript' src='controls.module.js')
-  script(type='text/javascript' src='mypickuplist.directive.js')
+h2 Select a value (click the button)
+div(
+  my-pickup-list
+  ng-init='selected="Alain"'
+  ng-model='selected'
+  values="Joe;Cecile;Alain"
+)
+h3 The selected value is {{selected}}
+button.btn.btn-primary(ng-click='selected="Jack"') Change to Jack

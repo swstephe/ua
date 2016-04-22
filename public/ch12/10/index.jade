@@ -1,17 +1,10 @@
-extends ../layout
-block style
-  link(rel='stylesheet' href='site.css')
-block content
-  h2 Switch Control
-  form(name='diveForm')
-    label.control-label Switch #1
-    div(my-switch-control,name='switch1',ng-model='switch1Value')
-    label.control-label Switch #2
-    div(my-switch-control,name='switch2',ng-model='switch2Value')
-  hr
-  h3 The value of Switch #1: {{switch1Value}}
-  h3 The value of Switch #2: {{switch2Value}}
-  h3 This form has {{diveForm.switchCount}} switches
-append script
-  script(type='text/javascript' src='controls.module.js')
-  script(type='text/javascript' src='myswitchcontrol.directive.js')
+h2 Switch Control
+form(name='diveForm')
+  label.control-label Switch #1
+  div(my-switch-control name='switch1' ng-model='switch1Value')
+  label.control-label Switch #2
+  div(my-switch-control name='switch2' ng-model='switch2Value')
+hr
+h3 The value of Switch #1: {{switch1Value}}
+h3 The value of Switch #2: {{switch2Value}}
+h3 This form has {{diveForm.switchCount}} switches

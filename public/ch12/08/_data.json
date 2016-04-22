@@ -2,6 +2,12 @@
     "index": {
         "app": "token",
         "cont_attr": {"ng-controller": "tokenGameCtrl"},
+        "scripts": [
+            "token.module.js",
+            "constants.js",
+            "tokengame.controller.js",
+            "diverpanel.directive.js"
+        ],
         "title": "Token Game"
     }
 }

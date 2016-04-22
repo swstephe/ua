@@ -1,6 +1,11 @@
 {
     "index": {
         "app": "traveling",
+        "has_style": true,
+        "scripts": [
+            "traveling.module.js",
+            "mywelcome.directive.js"
+        ],
         "title": "Traveling with Scope"
     }
 }

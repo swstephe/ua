@@ -1,15 +1,6 @@
-extends ../layout
-block content
-  h2 Top dives
-  div(ng-init='dive={site:"El Aroukh",location:"Giftun, Egypt",depth:14.2,time:56}')
-  div(
-    top-dive
-    header="The best dive of this month"
-    footer="Stay tuned!"
-  )
-    h3 {{dive.site}}
-    h4 {{dive.location}}
-    h2 {{dive.depth}}m | {{dive.time}}min
-append script
-  script(type='text/javascript' src='controls.module.js')
-  script(type='text/javascript' src='topdive.directive.js')
+h2 Top dives
+div(ng-init="dive=#{JSON.stringify(init)}")
+div(top-dive header="The best dive of this month" footer="Stay tuned!")
+  h3 {{dive.site}}
+  h4 {{dive.location}}
+  h2 {{dive.depth}}m | {{dive.time}}min

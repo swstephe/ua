@@ -1,6 +1,11 @@
 {
     "index": {
         "app": "fish",
+        "has_style": true,
+        "scripts": [
+            "fish.module.js",
+            "othername.directive.js"
+        ],
         "title": "Isolated Scope"
     }
 }

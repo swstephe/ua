@@ -1,6 +1,11 @@
 {
     "index": {
         "app": "controls",
+        "has_style": true,
+        "scripts": [
+            "controls.module.js",
+            "myswitchcontrol.directive.js"
+        ],
         "title": "Switch control"
     }
 }

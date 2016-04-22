@@ -1,21 +1,14 @@
-extends ../layout
-block content
-  h2 Find Underwater Tokens Game
-  h4 Tokens to collect: {{toCollect}}
-  div
-    .row
-      .col-sm-12
-        h4
-          | Tokens collected: {{collected}}&#32;
-          span(ng-show='hasEnough()') [Done!]
-  div(
-    ng-repeat='diver in divers'
-    diver-panel
-    diver-name='{{diver}}'
-    counter='$parent.collected'
-  )
-append script
-  script(type='text/javascript' src='token.module.js')
-  script(type='text/javascript' src='constants.js')
-  script(type='text/javascript' src='tokengame.controller.js')
-  script(type='text/javascript' src='diverpanel.directive.js')
+h2 Find Underwater Tokens Game
+h4 Tokens to collect: {{toCollect}}
+div
+  .row
+    .col-sm-12
+      h4
+        | Tokens collected: {{collected}}&#32;
+        span(ng-show='hasEnough()') [Done!]
+div(
+  ng-repeat='diver in divers'
+  diver-panel
+  diver-name='{{diver}}'
+  counter='$parent.collected'
+)

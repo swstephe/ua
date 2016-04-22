@@ -1,20 +1,12 @@
-extends ../layout
-block style
-  link(rel='stylesheet' href='site.css')
-block content
-  .row(ng-init='greeting="Welcome"')
-    .col-sm-12
-      h1 {{greeting}}, you are in the USA.
-  .row(my-welcome)
-    .col-sm-12
-      button.btn.btn-primary(ng-click='sayHello("Wilkommen")')
-        | Travel to Germany
-      h2 {{greeting}}, you are in Germany.
-      .row(my-welcome)
-        .col-sm-12
-          button.btn.btn-primary(ng-click='sayHello("Grüss Gott")')
-            | Travel to Beyern
-          h3 {{greeting}}, you are in Bayern.
-append script
-  script(type='text/javascript' src='traveling.module.js')
-  script(type='text/javascript' src='mywelcome.directive.js')
+.row(ng-init='greeting="Welcome"')
+  .col-sm-12
+    h1 {{greeting}}, you are in the USA.
+.row(my-welcome)
+  .col-sm-12
+    button.btn.btn-primary(ng-click='sayHello("Wilkommen")') Travel to Germany
+    h2 {{greeting}}, you are in Germany.
+    .row(my-welcome)
+      .col-sm-12
+        button.btn.btn-primary(ng-click='sayHello("Grüss Gott")')
+          | Travel to Beyern
+        h3 {{greeting}}, you are in Bayern.

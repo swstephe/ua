@@ -1,6 +1,16 @@
 {
     "index": {
         "app": "controls",
+        "init": {
+            "site": "El Aroukh",
+            "location": "Giftun, Egypt",
+            "depth": 14.2,
+            "time":56
+        },
+        "scripts": [
+            "controls.module.js",
+            "topdive.directive.js"
+        ],
         "title": "Top dives"
     }
 }

@@ -1,6 +1,10 @@
 {
     "index": {
         "app": "controls",
+        "scripts": [
+            "controls.module.js",
+            "mypickuplist.directive.js"
+        ],
         "title": "Pickup control"
     }
 }

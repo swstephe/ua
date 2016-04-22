@@ -1,6 +1,12 @@
 {
     "index": {
         "app": "controls",
+        "scripts": [
+            "dives.js",
+            "controls.module.js",
+            "dive.controller.js",
+            "topdive.directive.js"
+        ],
         "title": "Top dives"
     }
 }

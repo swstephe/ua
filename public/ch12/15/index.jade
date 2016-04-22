@@ -1,16 +1,9 @@
-extends ../layout
-block content
-  h2 Top dives
-  .panel.panel-primary(ng-controller='diveCtrl')
-    .panel-heading The best dives of this month
-    .panel-body
-      div(top-dive collection='dives' top-count=3)
-        h3.text-success \#{{$index + 1}}: {{$dive.site}}
-        h4 {{$dive.location}}
-        h2 {{$dive.depth}}m | {{$dive.time}}min
-    .panel-footer Stay tuned!
-append script
-  script(type='text/javascript' src='dives.js')
-  script(type='text/javascript' src='controls.module.js')
-  script(type='text/javascript' src='dive.controller.js')
-  script(type='text/javascript' src='topdive.directive.js')
+h2 Top dives
+.panel.panel-primary(ng-controller='diveCtrl')
+  .panel-heading The best dives of this month
+  .panel-body
+    div(top-dive collection='dives' top-count=3)
+      h3.text-success \#{{$index + 1}}: {{$dive.site}}
+      h4 {{$dive.location}}
+      h2 {{$dive.depth}}m | {{$dive.time}}min
+  .panel-footer Stay tuned!
