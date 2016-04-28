@@ -1,5 +1,6 @@
-angular.module 'app'
-.controller 'diveLogCtrl', [
-  '$scope'
-  ($scope) -> $scope.dives = dives
-]
+diveLogCtrl = ($scope) ->
+  $scope.dives = dives
+
+angular
+  .module 'app'
+  .controller 'diveLogCtrl', ['$scope', diveLogCtrl]
